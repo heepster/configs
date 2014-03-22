@@ -1,0 +1,89 @@
+export EDITOR="vim"
+
+PROJECT_DIR='~/code/projects'
+
+# curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -OL
+# https://raw.githubusercontent.com/chadversary/home/42cf697ba69d4d474ca74297cdf94186430f1384/.config/kiwi-profile/40-git-prompt.sh
+source ~/.git-completion.bash
+source ~/.git-prompt.sh
+
+# ALIASES
+alias c='clear'
+alias e='emacs-24.3'
+alias f="cd $PROJECT_DIR"
+alias s='source ~/.bashrc'
+alias ga='git add .'
+alias gs='git status'
+alias gc='git commit -m'
+alias gd='git diff HEAD *'
+alias gcl='git clone'
+
+HISTCONTROL=ignoreboth
+HISTSIZE=1000
+HISTFILESIZE=2000
+shopt -s histappend
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='source ~/.bashrc; ls -G'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# LS COLORS
+export LSCOLORS=Gxfxcxdxbxegedabagacad
+
+# PROPER COLORS
+export TERM="xterm-256color"
+
+# COLORS
+BLUE='\[\e[34m\]'
+YELLOW='\[\e[33m\]'
+GREEN='\[\e[32m\]'
+PURPLE='\[\e[35m\]'
+RED='\[\e[31m\]'
+END='\[\e[m\]'
+LBLUE='\[\e[1;34m\]'
+LYELLOW='\[\e[1;33m\]'
+LGREEN='\[\e[1;32m\]'
+LRED='\[\e[1;31m\]'
+LPURPLE='\[\e[1;35m\]'
+
+# BASH PROMPT
+USER="$LBLUE\u$END"
+HOST="$LGREEN\h$END"
+DIR="$LPURPLE\w$END"
+DOL="$LYELLOW\$$END"
+TIME="$LPURPLE\t$END"
+AT="$YELLOW@$END"
+ARROWS="$BLUE>>$END"
+#PROJECT="\$(git remote -v | awk 'NR==1 { print \$2 }' | cut -d / -f 2)"
+PROJECT_TITLE="${YELLOW}Project: $END"
+GIT="$GREEN$PROJECT_TITLE$PROJECT -- \$(__git_ps1 | sed 's/ *$//g')$END"
+CWD="$(pwd)"
+ANCHOR="$LGREEN|--$END"
+STATUS="$YELLOW\$(getStatus)$END"
+
+function getStatus() {
+  local IS_GIT=$(git remote -v > /dev/null 2>&1; echo $?)
+  NUM="0"
+  if [ "$IS_GIT" -eq "$NUM" ]; then
+    echo $(git remote -v | awk 'NR==1 { print $2 }' | cut -d / -f 2): $(__git_ps1 | sed 's/ *$//g')
+  else 
+    echo "$(pwd)"
+  fi
+}
+
+export PS1="\n$USER $AT $HOST\n  $ANCHOR $STATUS\n  $ANCHOR $TIME $ARROWS "
+
+
