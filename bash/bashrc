@@ -17,6 +17,7 @@ alias gs='git status'
 alias gc='git commit -m'
 alias gd='git diff HEAD *'
 alias gcl='git clone'
+alias postgres='postgres -D /usr/local/var/postgres'
 
 HISTCONTROL=ignoreboth
 HISTSIZE=1000
