@@ -29,6 +29,7 @@ silent !stty -ixon > /dev/null 2>/dev/null
 au BufNewFile,BufRead *.ms set filetype=javascript
 au BufNewFile,BufRead *.cap set filetype=ruby
 au BufNewFile,BufRead *.ejs set filetype=html
+autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 nnoremap <CR> :noh<CR>
 "nnoremap <esc> :noh<return><esc>
 hi Search cterm=NONE ctermfg=black ctermbg=white
