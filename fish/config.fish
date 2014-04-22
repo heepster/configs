@@ -15,5 +15,6 @@ alias mastermind 'lein run --port 3003 -r'
 alias fish 'chsh -s /usr/local/bin/fish'
 alias configs "cd $PROJECT_DIR/configs"
 alias railsgrep "grep --color=auto --exclude-dir=log --exclude-dir=test -r"
+alias gcyc 'git checkout master; git merge develop; git push; git checkout develop'
 
 
