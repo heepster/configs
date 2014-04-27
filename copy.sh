@@ -5,6 +5,7 @@ FISH_DIR=$CURRENT_DIR/fish
 VIM_DIR=$CURRENT_DIR/vim
 BASH_DIR=$CURRENT_DIR/bashrc
 TMUX_DIR=$CURRENT_DIR/tmux
+EMACS_DIR=$CURRENT_DIR/emacs
 
 function copyFish() {
   echo "FISH CONFIG"
@@ -31,6 +32,16 @@ function copyTmux() {
   ln -s $TMUX_DIR/tmux.conf $TMUX_TARGET_DIR/.tmux.conf
 } 
 
+function copyEmacs () {
+  echo "EMACS CONFIG"
+  EMACS_TARGET_DIR=$HOME
+  echo "Symlinking .emacs to $EMACS_TARGET_DIR/.emacs"
+  ln -s $EMACS_DIR/emacs $EMACS_TARGET_DIR/.emacs
+  echo "Symlinking .emacs.d to $EMACS_TARGET_DIR/.emacs.d"
+  ln -s $EMACS_DIR/emacs.d $EMACS_TARGET_DIR/.emacs.d
+}
+
 copyFish
 copyVim
 copyTmux
+copyEmacs
