@@ -50,7 +50,7 @@ function fish_prompt
   
   set -l is_git (git remote -v > /dev/null 2>&1; echo $status)
   if [ "$is_git" -ne "128" ]
-    set repo (git remote -v | awk 'NR==1 {print $2}' | cut -d / -f 2)
+    set repo (git remote -v | grep origin | awk 'NR==1 {print $2}' | cut -d / -f 2)
     set path $red$repo$normal
   else
     set path $red$cwd$normal
