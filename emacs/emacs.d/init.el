@@ -1,9 +1,21 @@
-;; (add-to-list 'load-path "/Users/kevin/.emacs.d/color-theme")
-;; (require 'color-theme)
-;; (eval-after-load "color-theme"
-;;   '(progn
-;;      (color-theme-initialize)
-;;      (color-theme-arjen)))
+;(add-to-list 'load-path "/Users/kevin/.emacs.d/color-theme")
+;(require 'color-theme)
+;(eval-after-load "color-theme"
+;  '(progn
+;     (color-theme-initialize)
+;     (color-theme-zenburn)))
+
+(global-set-key "\C-x\C-m" 'execute-extended-command)
+(global-set-key "\C-c\C-m" 'execute-extended-command)
+
+(show-paren-mode 1)
+(setq show-paren-delay 0)
+(require 'paren)
+(set-face-background 'show-paren-match (face-background 'default))
+(set-face-foreground 'show-paren-match "#def")
+    (set-face-attribute 'show-paren-match nil :weight 'extra-bold)
+
+(setq backup-directory-alist `(("." . "~/.saves")))
 
 ;; turn off menu bar
 (menu-bar-mode -1)
@@ -87,13 +99,19 @@
                      evil
                      inf-ruby
                      magit
-                     org))
+                     org
+                     find-file-in-repository
+                     color-theme
+                     coffee-mode
+                     rainbow-delimiters
+                     haml-mode))
     (unless (package-installed-p package)
       (when (not refreshed)
         (package-refresh-contents)
         (setq refreshed t))
       (package-install package))))
 
+(global-set-key (kbd "C-x C-p") 'find-file-in-repository)
 
 (require 'inf-ruby)
 (require 'cider)
@@ -147,12 +165,14 @@
   (paredit-backward))
 
 ;; rainbow parentheses
-(require 'highlight-parentheses)
-(add-hook 'clojure-mode-hook '(lambda () (highlight-parentheses-mode 1)))
-(setq hl-paren-colors
-      '("orange1" "yellow1" "greenyellow" "green1"
-        "springgreen1" "cyan1" "slateblue1" "magenta1" "purple"))
-
+;(require 'highlight-parentheses)
+;(add-hook 'Clojure-mode-hook '(lambda () (highlight-parentheses-mode 1)))
+;(setq hl-paren-colors
+;      '("orange1" "yellow1" "greenyellow" "green1"
+;        "springgreen1" "cyan1" "slateblue1" "magenta1" "purple"))
+;
+(require 'rainbow-delimiters)
+(global-rainbow-delimiters-mode)
 
 ;; In addition to the following commands, remember these useful paredit commands:
 ;; paredit-forward-slurp-sexp <C-right>, C-)
@@ -502,6 +522,7 @@ Leave one space or none, according to the context."
   "Major mode for editing JSON files" t)
 (add-to-list 'auto-mode-alist '("\\.json$" . json-mode))
 
+(add-to-list 'auto-mode-alist '("\\.hiccup\\'" . clojure-mode))
 
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
