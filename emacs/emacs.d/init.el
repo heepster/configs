@@ -1,10 +1,3 @@
-;(add-to-list 'load-path "/Users/kevin/.emacs.d/color-theme")
-;(require 'color-theme)
-;(eval-after-load "color-theme"
-;  '(progn
-;     (color-theme-initialize)
-;     (color-theme-zenburn)))
-
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c\C-m" 'execute-extended-command)
 
@@ -506,6 +499,7 @@ Leave one space or none, according to the context."
 ;; C-c SPC and C-c C-SPC are ace-jump-word-mode
 ;; C-u C-c SPC and C-u C-c C-SPC and s-SPC are ace-jump-char-mode
 ;; C-u C-u C-c SPC and C-u C-u C-c C-SPC are ace-jump-line-mode
+(global-set-key (kbd "C-c j") 'ace-jump-mode)
 (global-set-key (kbd "C-c SPC")   'ace-jump-mode)
 (global-set-key (kbd "C-c C-SPC") 'ace-jump-mode)
 (global-set-key (kbd "s-SPC")     'ace-jump-char-mode)
