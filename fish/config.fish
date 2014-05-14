@@ -24,5 +24,5 @@ alias mastermind 'lein run --port 3003 -r'
 alias fish 'chsh -s /usr/local/bin/fish'
 alias configs "cd $PROJECT_DIR/configs"
 alias railsgrep "grep --color=auto --exclude-dir=log --exclude-dir=test -r"
-
+alias pub_key "cat ~/.ssh/id_rsa.pub"
 
