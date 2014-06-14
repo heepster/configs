@@ -19,7 +19,6 @@ set laststatus=2
 set showcmd
 set report=0
 
-highlight LineNr ctermfg=blue
 syntax on
 syntax enable
 filetype on
@@ -31,9 +30,11 @@ au BufNewFile,BufRead *.cap set filetype=ruby
 au BufNewFile,BufRead *.ejs set filetype=html
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 nnoremap <CR> :noh<CR>
-"nnoremap <esc> :noh<return><esc>
-hi Search cterm=NONE ctermfg=black ctermbg=white
+hi Sejrch cterm=NONE ctermfg=black ctermbg=white
 
+" Useful key mappings
+imap ;co console.log();<left><left>
+imap ;ri raise .inspect<left><left><left><left><left><left><left><left>
 
 " Everything after this line requires plugins
 
@@ -52,6 +53,8 @@ let g:ctrlp_use_caching = 0
 
 " EASYMOTION
 let g:EasyMotion_leader_key = '<Leader>'
+hi EasyMotionTarget ctermbg=none ctermfg=blue
+hi EasyMotionShade  ctermbg=none ctermfg=black
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>

@@ -14,7 +14,7 @@
 (menu-bar-mode -1)
 
 ;; smart indent
-(electric-indent-mode 1)
+;; (electric-indent-mode 1)
 
 ;; turn off tool bar
 (if (fboundp 'tool-bar-mode)
