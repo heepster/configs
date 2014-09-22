@@ -1,0 +1,29 @@
+alias incept='cd; vagrant ssh'
+alias s='source ~/.bash_profile'
+alias c='clear'
+alias p='vim ~/.bash_profile'
+alias tl='tmux list-sessions'
+alias ta='tmux attach -t'
+export PS1="\[$(tput bold)\]\[$(tput setaf 4)\][\[$(tput setaf 6)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 6)\]\h \[$(tput setaf 2)\]\W\[$(tput setaf 4)\]] \\$ \[$(tput sgr0)\]"
+
+
+if [ "$(uname)" == "Darwin" ]; then
+
+  alias ls='ls -GpFh'
+
+  # RBENV
+  eval "$(rbenv init -)"
+
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+
+  alias ls='ls -F -h --color=auto'
+
+  # RBENV
+  export RBENV_ROOT="${HOME}/.rbenv"
+  if [ -d "${RBENV_ROOT}" ]; then
+    export PATH="${RBENV_ROOT}/bin:${PATH}"
+    eval "$(rbenv init -)"
+  fi
+
+fi
+
