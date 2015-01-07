@@ -42,6 +42,6 @@ function copyEmacs () {
 }
 
 #copyFish
-#copyVim
-copyTmux
+copyVim
+#copyTmux
 #copyEmacs
