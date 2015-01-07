@@ -41,7 +41,7 @@ function copyEmacs () {
   ln -s $EMACS_DIR/emacs.d $EMACS_TARGET_DIR/.emacs.d
 }
 
-copyFish
-copyVim
+#copyFish
+#copyVim
 copyTmux
-copyEmacs
+#copyEmacs

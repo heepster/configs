@@ -1,3 +1,4 @@
+alias f='cd ~/code/projects'
 alias s='source ~/.bash_profile'
 alias c='clear'
 alias p='vim ~/.bash_profile'
@@ -9,6 +10,8 @@ alias gd='git diff HEAD *'
 alias gs='git status'
 alias gc='git commit -m'
 export PS1="\[$(tput bold)\]\[$(tput setaf 4)\][\[$(tput setaf 6)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 6)\]\h \[$(tput setaf 2)\]\W\[$(tput setaf 4)\]] \\$ \[$(tput sgr0)\]"
+
+export JAVA_HOME=$(/usr/libexec/java_home)
 
 
 if [ "$(uname)" == "Darwin" ]; then
