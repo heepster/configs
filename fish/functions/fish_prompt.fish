@@ -24,7 +24,8 @@ function fish_prompt
   set -l green (set_color green)
 
   set -l arrow "$red➜ "
-  set -l cwd   $cyan(basename (prompt_pwd))
+  set -l cwd (basename (prompt_pwd))
+  set -l cwd_color "$cyan ($cwd) "
   set -l user  $green$USER
   set -l name  "ŏdyssęy"
   #set -l name  "קַדְמִיאֵל"
@@ -56,6 +57,6 @@ function fish_prompt
     set path $red$cwd$normal
   end
 
-  echo -n -s $user$at$host $dot $path $git_info $normal ' ۺ  '
+  echo -n -s $user$at$host $dot $path $git_info $normal ' ۺ  ' $cwd_color
 
 end

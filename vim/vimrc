@@ -1,4 +1,5 @@
 set shell=/bin/sh
+set so=7
 set ai
 set expandtab
 set tabstop=2
@@ -9,7 +10,6 @@ set autoindent
 set smartindent
 set title
 set restorescreen 
-set hlsearch
 set incsearch
 set ignorecase
 set smartcase
@@ -18,59 +18,37 @@ set wildmenu
 set showcmd
 set report=0
 set number
-highlight LineNr ctermfg=grey
-
+set lazyredraw
+hi LineNr ctermfg=grey guifg=Black
+hi SignColumn ctermbg=232
 syntax on
 syntax enable
 filetype on
 filetype plugin indent on
 map <C-s> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
-map <space> viw
 silent !stty -ixon > /dev/null 2>/dev/null
 au BufNewFile,BufRead *.ms set filetype=javascript
 au BufNewFile,BufRead *.pegjs set filetype=javascript
 au BufNewFile,BufRead *.cap set filetype=ruby
 au BufNewFile,BufRead *.ejs set filetype=html
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby
-nnoremap <CR> :noh<CR>
 hi Search cterm=NONE ctermfg=black ctermbg=white
 
-" Useful key mappings
-imap ;co console.log();<left><left>
-imap ;ri raise .inspect<left><left><left><left><left><left><left><left>
+" Pathogen
+execute pathogen#infect()
 
-" Everything after this line requires plugins
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-call pathogen#infect()
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
 
-highlight clear SignColumn 
-
-" "Clojure
-" au VimEnter * RainbowParenthesesToggle
-" au Syntax * RainbowParenthesesLoadRound
-" au Syntax * RainbowParenthesesLoadSquare
-" au Syntax * RainbowParenthesesLoadBraces
-" 
-" CTRL-p
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-let g:ctrlp_use_caching = 0
- 
-" " EASYMOTION
-" let g:EasyMotion_leader_key = '<Leader>'
-" hi EasyMotionTarget ctermbg=none ctermfg=blue
-" hi EasyMotionShade  ctermbg=none ctermfg=black
-" 
-
-set guifont=Droid\ Sans\ Mono\ for\ Powerline:h12
-set laststatus=2
-set encoding=utf-8
-set t_Co=256
-set fillchars+=stl:\ ,stlnc:\
-set term=xterm-256color
-set termencoding=utf-8
-let g:airline_theme = 'wombat'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
+" Clojure
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces

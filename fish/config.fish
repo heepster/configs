@@ -27,6 +27,7 @@ alias fish 'chsh -s /usr/local/bin/fish'
 alias configs "cd $PROJECT_DIR/configs"
 alias railsgrep "grep --color=auto --exclude-dir=log --exclude-dir=test -r"
 alias pub_key "cat ~/.ssh/id_rsa.pub"
+alias admin_remigrate "set CUR (pwd); and cd ~/code/projects/front/apps/admin; and rails r script/baseline_downloader.rb; and rake db:remigrate; and cd $CUR"
 
 set -gx RBENV_ROOT /usr/local/var/rbenv
 . (rbenv init -|psub)
@@ -37,6 +38,4 @@ alias kl 'klist'
 set -x JAVA_HOME (/usr/libexec/java_home)
 
 source ~/.nvm-fish/nvm.fish
-
-set -x DOCKER_HOST tcp://(boot2docker ip 2>/dev/null):2376
 
