@@ -1,0 +1,61 @@
+; General
+(require 'package)
+(menu-bar-mode -1)
+
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(package-initialize)
+
+
+; (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+;                          ("marmalade" . "https://marmalade-repo.org/packages/")
+;                		 ("melpa" . "http://melpa.milkbox.net/packages/")))
+; (package-initialize)
+			 
+; (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
+; (require 'ido) (ido-mode t)
+; (require 'powerline) (powerline-default-theme)
+; (require 'powerline-evil)
+; (require 'smart-tab) 
+; (require 'evil-tabs) (global-evil-tabs-mode t)
+; (require 'cider-eval-sexp-fu)
+
+; Custom Key Bindings
+; (global-set-key (kbd "M-e") 'cider-eval-buffer)
+; (global-set-key (kbd "M-n") 'cider-repl-set-ns)
+; (global-set-key (kbd "M-r") 'cider-jack-in)
+; (global-set-key (kbd "M-l") 'load-file)
+; (global-set-key (kbd "TAB") 'smart-tab)
+; (global-set-key (kbd "C-c g") 'magit-status)
+
+; Org Mode
+; (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+
+; Magit
+; (setq magit-auto-revert-mode nil)
+; (evil-set-initial-state 'git-commit-mode 'insert)
+; (evil-set-initial-state 'git-status-mode 'insert)
+
+; (add-hook 'cider-repl-mode-hook 'evil-emacs-state)
+
+; (require 'evil)
+; (evil-mode 1)
+
+; Cider
+; (cider-repl-toggle-pretty-printing)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("f1af57ed9c239a5db90a312de03741e703f712355417662c18e3f66787f94cbe" "6a9606327ecca6e772fba6ef46137d129e6d1888dcfc65d0b9b27a7a00a4af20" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
