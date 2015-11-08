@@ -3,53 +3,67 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
-(standard-display-ascii ?\t "^I")
-
 (when (not package-archive-contents)
  (package-refresh-contents))
  (mapc
  (lambda (package)
    (or (package-installed-p package)
          (package-install package)))
-	 '(auto-complete clojure-mode coffee-mode rainbow-delimiters magit ac-nrepl powerline magit))
+   '(auto-complete clojure-mode coffee-mode rainbow-delimiters magit ac-nrepl))
 
+(add-to-list 'custom-theme-load-path "/Users/kevin/code/workspace/atom-one-dark-theme/")
+(load-theme 'atom-one-dark t)
 
-(require 'ido) (ido-mode t)
-(require 'powerline) (powerline-center-theme)
+(ac-config-default)
+(setq ac-disable-faces nil)
+
+(show-paren-mode)
+
+(standard-display-ascii ?\t "^I")
+(require 'ido) (ido-mode)
+                
+(setq magit-auto-revert-mode nil)
+
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+(add-to-list 'auto-mode-alist '("\\emacs$" . clojure-mode))
+
+(setq find-program "/usr/local/bin/find")
+(setq grep-program "/usr/local/bin/grep")
+
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'clojure-mode-hook 'cider-mode)
+
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
 
 ; Custom Key Bindings
 (global-set-key (kbd "M-e") 'cider-eval-buffer)
 (global-set-key (kbd "M-n") 'cider-repl-set-ns)
 (global-set-key (kbd "M-r") 'cider-jack-in)
 (global-set-key (kbd "M-l") 'load-file)
-(global-set-key (kbd "TAB") 'smart-tab)
 (global-set-key (kbd "C-c g") 'magit-status)
 
-; Org Mode
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+;; Reverse colors for the border to have nicer line
+(set-face-inverse-video-p 'vertical-border nil)
+(set-face-background 'vertical-border (face-background 'default))
 
-; Magit
-(setq magit-auto-revert-mode nil)
+;; Set symbol for the border
+(set-display-table-slot standard-display-table 'vertical-border (make-glyph-code ?┃))
 
-; Cider
-; (cider-repl-toggle-pretty-printing)
+;; Aliases
+(defalias 'qrr 'query-replace-regexp)
 
-(load-theme 'gotham t)
-(add-to-list 'auto-mode-alist '("\\emacs$" . clojure-mode))
+;; Status bar upgrade
+(setq sml/theme 'dark)
+(setq sml/no-confirm-load-theme t)
+(sml/setup)
 
-(setq find-program "/usr/local/bin/find")
-(setq grep-program "/usr/local/bin/grep")
-(setq explicit-shell-file-name "/bin/bash")
-(setq shell-file-name "bash")
-(setq explicit-bash.exe-args '("--noediting" "--login" "-i"))
-(setenv "SHELL" shell-file-name)
+;; Follow sym links
+(setq vc-follow-symlinks t)
 
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'clojure-mode-hook 'cider-mode)
+;; indent levels
+(setq js-indent-level 2)
+(setq css-indent-offset 2)
 
-(show-paren-mode)
-
-(setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
