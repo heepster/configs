@@ -1,27 +1,37 @@
 (require 'package)
 (menu-bar-mode -1)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
-(when (not package-archive-contents)
- (package-refresh-contents))
- (mapc
- (lambda (package)
-   (or (package-installed-p package)
-         (package-install package)))
-   '(auto-complete clojure-mode coffee-mode rainbow-delimiters magit ac-nrepl))
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+(show-paren-mode)
 
-(add-to-list 'custom-theme-load-path "/Users/kevin/code/workspace/atom-one-dark-theme/")
-(load-theme 'atom-one-dark t)
+(let (refreshed)
+  (dolist (package '(paredit
+                     auto-complete
+                     clojure-mode
+                     js2-mode
+                     coffee-mode
+                     magit
+                     cider
+                     highlight-parentheses
+                     rainbow-delimiters
+                     markdown-mode
+                     ace-jump-mode
+                     smart-mode-line
+                     solarized-theme
+                     json-mode))
+    (unless (package-installed-p package)
+      (when (not refreshed)
+        (package-refresh-contents)
+          (setq refreshed t))
+          (package-install package))))
 
+(require 'auto-complete)
 (ac-config-default)
 (setq ac-disable-faces nil)
 
-(show-paren-mode)
-
 (standard-display-ascii ?\t "^I")
 (require 'ido) (ido-mode)
-                
+              
 (setq magit-auto-revert-mode nil)
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
@@ -55,8 +65,12 @@
 ;; Aliases
 (defalias 'qrr 'query-replace-regexp)
 
+;; Theme
+
+(require 'solarized)
+
 ;; Status bar upgrade
-(setq sml/theme 'dark)
+(setq sml/theme 'light)
 (setq sml/no-confirm-load-theme t)
 (sml/setup)
 
