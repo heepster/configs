@@ -15,7 +15,11 @@ export HISTIGNORE="&:[ ]*:exit"
 shopt -s histappend
 shopt -s cmdhist
 
-if [ "$(uname)" == "Darwin" ]; then
+if [[ "$(which ls)" =~ .*gnubin ]]; then
+  # If 'ls' is located in a path with 'gnubin'
+  # Assume this is a Darwin machine with coreutils installed
+  alias ls='ls -F -h --color=auto'    
+elif [ "$(uname)" == "Darwin" ]; then
   alias ls='ls -GpFh'
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   alias ls='ls -F -h --color=auto'

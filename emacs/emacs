@@ -40,7 +40,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (add-to-list 'auto-mode-alist '("\\emacs$" . clojure-mode))
-(add-to-list 'auto-mode-alist '("\\bash_profile$" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("bash_profile" . shell-script-mode))
 
 (setq find-program "/usr/local/bin/find")
 (setq grep-program "/usr/local/bin/grep")
