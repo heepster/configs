@@ -55,6 +55,26 @@
 (global-set-key (kbd "M-l") 'load-file)
 (global-set-key (kbd "C-c g") 'magit-status)
 
+(defun split-window-vertically-evenly ()
+  (interactive)
+  (command-execute 'split-window-right)
+  (command-execute 'other-window 1)
+  (command-execute 'balance-windows)) 
+(global-set-key (kbd "C-x 3") 'split-window-vertically-evenly)
+
+(defun split-window-horizontally-evenly ()
+  (interactive)
+  (command-execute 'split-window-below)
+  (command-execute 'other-window 1)
+  (command-execute 'balance-windows))
+(global-set-key (kbd "C-x 2") 'split-window-horizontally-evenly)
+
+(defun close-window-evenly ()
+  (interactive)
+  (command-execute 'delete-window)
+  (command-execute 'balance-windows))
+(global-set-key (kbd "C-x 0") 'close-window-evenly)
+
 ;; Reverse colors for the border to have nicer line
 (set-face-inverse-video-p 'vertical-border nil)
 (set-face-background 'vertical-border (face-background 'default))
