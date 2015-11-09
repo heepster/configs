@@ -1,0 +1,5 @@
+alias f='cd ~/code/projects'
+alias r='ssh kevin@10.20.10.121'
+alias d='ssh root@10.20.10.124'
+alias postgres='postgres -D /usr/local/var/postgres'
+export JAVA_HOME=$(/usr/libexec/java_home)

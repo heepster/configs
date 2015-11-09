@@ -1,4 +1,3 @@
-alias f='cd ~/code/projects'
 alias s='source ~/.bash_profile'
 alias p='emacs ~/.bash_profile'
 alias c='clear'
@@ -9,8 +8,6 @@ alias gs='git status'
 alias gc='git commit -m'
 alias ga='git add .'
 alias e='emacs'
-alias postgres='postgres -D /usr/local/var/postgres'
-export JAVA_HOME=$(/usr/libexec/java_home)
 export HISTCONTROL="erasedups:ignoreboth"
 export HISTFILESIZE=500000
 export HISTSIZE=100000
@@ -43,14 +40,27 @@ if [ -d "${DRAKE_DIR}" ]; then
   PATH=$DRAKE_DIR:$PATH
 fi
 
-#GNUBIN
+# GNUBIN
 export GNU_BIN_DIR="$(brew --prefix coreutils)/libexec/gnubin"
 if [ -d "${GNU_BIN_DIR}" ]; then
   PATH=$GNU_BIN_DIR:$PATH
 fi
 
-# WORK SPECIFIC
-alias r='ssh kevin@10.20.10.121'
-alias d='ssh root@10.20.10.124'
+# BASH COMPLETION
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
 
-#PS1="\e[0;32m\$(__git_ps1 "[%s]")\e[0m \e[0;31m->\e[0m "
+# PS1
+PS1="\u:\h \W$ "
+if [ -f ~/.git-prompt.sh ]; then
+  source ~/.git-prompt.sh
+  GIT_PS1_SHOWDIRTYSTATE=true
+  PS1='\u@\h$(__git_ps1 " (%s)") \W$ '
+fi
+
+# COMPUTER SPECIFIC
+if [ -f "${HOME}/.local_bash_profile" ]; then
+  . "${HOME}/.local_bash_profile"
+fi
+
