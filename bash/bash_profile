@@ -1,0 +1,56 @@
+alias f='cd ~/code/projects'
+alias s='source ~/.bash_profile'
+alias p='emacs ~/.bash_profile'
+alias c='clear'
+alias tl='tmux list-sessions'
+alias ta='tmux attach -t'
+alias gd='git diff HEAD *'
+alias gs='git status'
+alias gc='git commit -m'
+alias ga='git add .'
+alias e='emacs'
+alias postgres='postgres -D /usr/local/var/postgres'
+export JAVA_HOME=$(/usr/libexec/java_home)
+export HISTCONTROL="erasedups:ignoreboth"
+export HISTFILESIZE=500000
+export HISTSIZE=100000
+export HISTIGNORE="&:[ ]*:exit"
+shopt -s histappend
+shopt -s cmdhist
+
+if [ "$(uname)" == "Darwin" ]; then
+  alias ls='ls -GpFh'
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+  alias ls='ls -F -h --color=auto'
+fi
+
+# RBENV
+export RBENV_ROOT="${HOME}/.rbenv"
+if [ -d "${RBENV_ROOT}" ]; then
+  export PATH="${RBENV_ROOT}/shims:${RBENV_ROOT}/bin:${PATH}"
+  eval "$(rbenv init -)"
+fi
+
+# NVM
+export NVM_DIR="${HOME}/.nvm"
+if [ -d "${NVM_DIR}" ]; then
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+fi
+
+# DRAKE
+export DRAKE_DIR="${HOME}/code/projects/drake/bin"
+if [ -d "${DRAKE_DIR}" ]; then
+  PATH=$DRAKE_DIR:$PATH
+fi
+
+#GNUBIN
+export GNU_BIN_DIR="$(brew --prefix coreutils)/libexec/gnubin"
+if [ -d "${GNU_BIN_DIR}" ]; then
+  PATH=$GNU_BIN_DIR:$PATH
+fi
+
+# WORK SPECIFIC
+alias r='ssh kevin@10.20.10.121'
+alias d='ssh root@10.20.10.124'
+
+#PS1="\e[0;32m\$(__git_ps1 "[%s]")\e[0m \e[0;31m->\e[0m "
