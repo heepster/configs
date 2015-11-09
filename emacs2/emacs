@@ -84,9 +84,9 @@
 
 ;; Aliases
 (defalias 'qrr 'query-replace-regexp)
+(defalias 'qr 'query-replace)
 
 ;; Theme
-
 (require 'solarized)
 
 ;; Status bar upgrade
