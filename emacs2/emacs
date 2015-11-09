@@ -30,7 +30,11 @@
 (setq ac-disable-faces nil)
 
 (standard-display-ascii ?\t "^I")
-(require 'ido) (ido-mode)
+
+(require 'ido)
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
               
 (setq magit-auto-revert-mode nil)
 
@@ -53,7 +57,10 @@
 (global-set-key (kbd "M-n") 'cider-repl-set-ns)
 (global-set-key (kbd "M-r") 'cider-jack-in)
 (global-set-key (kbd "M-l") 'load-file)
-(global-set-key (kbd "C-c g") 'magit-status)
+
+(global-set-key (kbd "C-c m") 'magit-status)
+(global-set-key (kbd "C-c e") 'eshell)
+(global-set-key (kbd "C-c j") 'ace-jump-mode)
 
 (defun split-window-vertically-evenly ()
   (interactive)
