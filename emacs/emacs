@@ -18,12 +18,22 @@
                      ace-jump-mode
                      smart-mode-line
                      solarized-theme
-                     json-mode))
+                     json-mode
+                     flymake-ruby
+                     flymake-coffee
+                     flymake-easy))
     (unless (package-installed-p package)
       (when (not refreshed)
         (package-refresh-contents)
           (setq refreshed t))
           (package-install package))))
+
+(require 'flymake)
+(add-hook 'find-file-hook 'flymake-find-file-hook)
+(require 'flymake-ruby)
+(add-hook 'ruby-mode-hook 'flymake-ruby-load)
+(require 'flymake-coffee)
+(add-hook 'coffee-mode-hook 'flymake-coffee-load)
 
 (require 'auto-complete)
 (ac-config-default)
@@ -58,10 +68,15 @@
 (global-set-key (kbd "M-n") 'cider-repl-set-ns)
 (global-set-key (kbd "M-r") 'cider-jack-in)
 (global-set-key (kbd "M-l") 'load-file)
-
 (global-set-key (kbd "C-c m") 'magit-status)
 (global-set-key (kbd "C-c e") 'eshell)
 (global-set-key (kbd "C-c j") 'ace-jump-mode)
+(global-set-key (kbd "C-c r") 'query-replace-regexp)
+(global-set-key (kbd "C-c p") 'replace-regexp)
+
+;; Aliases
+(defalias 'qrr 'query-replace-regexp)
+(defalias 'qr 'query-replace)
 
 (defun split-window-vertically-evenly ()
   (interactive)
@@ -90,15 +105,11 @@
 ;; Set symbol for the border
 (set-display-table-slot standard-display-table 'vertical-border (make-glyph-code ?┃))
 
-;; Aliases
-(defalias 'qrr 'query-replace-regexp)
-(defalias 'qr 'query-replace)
-
 ;; Theme
 (require 'solarized)
 
 ;; Status bar upgrade
-(setq sml/theme 'dark)
+(setq sml/theme 'light)
 (setq sml/no-confirm-load-theme t)
 (sml/setup)
 
