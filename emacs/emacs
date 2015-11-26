@@ -35,6 +35,8 @@
 (require 'flymake-coffee)
 (add-hook 'coffee-mode-hook 'flymake-coffee-load)
 
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 (require 'auto-complete)
 (ac-config-default)
 (setq ac-disable-faces nil)
@@ -51,6 +53,7 @@
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (add-to-list 'auto-mode-alist '("\\emacs$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("bash_profile" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 
 (setq find-program "/usr/local/bin/find")
 (setq grep-program "/usr/local/bin/grep")
