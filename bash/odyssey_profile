@@ -6,4 +6,6 @@ alias postgres='postgres -D /usr/local/var/postgres'
 alias es='elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml'
 export JAVA_HOME=$(/usr/libexec/java_home)
 
-eval $(docker-machine env default)
+if [[ `docker-machine status default` =~ "Running" ]]; then
+  eval $(docker-machine env default)
+fi

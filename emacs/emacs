@@ -19,21 +19,17 @@
                      smart-mode-line
                      solarized-theme
                      json-mode
-                     flymake-ruby
-                     flymake-coffee
-                     flymake-easy))
+                     evil
+                     evil-tabs))
     (unless (package-installed-p package)
       (when (not refreshed)
         (package-refresh-contents)
           (setq refreshed t))
           (package-install package))))
 
-(require 'flymake)
-(add-hook 'find-file-hook 'flymake-find-file-hook)
-(require 'flymake-ruby)
-(add-hook 'ruby-mode-hook 'flymake-ruby-load)
-(require 'flymake-coffee)
-(add-hook 'coffee-mode-hook 'flymake-coffee-load)
+(require 'evil)
+(evil-mode 1)
+(global-evil-tabs-mode t)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
@@ -47,13 +43,15 @@
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
-              
+
 (setq magit-auto-revert-mode nil)
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (add-to-list 'auto-mode-alist '("\\emacs$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("bash_profile" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.cpp\\'" . c++-mode))
 
 (setq find-program "/usr/local/bin/find")
 (setq grep-program "/usr/local/bin/grep")
@@ -85,7 +83,7 @@
   (interactive)
   (command-execute 'split-window-right)
   (command-execute 'other-window 1)
-  (command-execute 'balance-windows)) 
+  (command-execute 'balance-windows))
 (global-set-key (kbd "C-x 3") 'split-window-vertically-evenly)
 
 (defun split-window-horizontally-evenly ()
@@ -122,4 +120,3 @@
 ;; indent levels
 (setq js-indent-level 2)
 (setq css-indent-offset 2)
-
