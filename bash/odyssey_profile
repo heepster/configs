@@ -12,7 +12,7 @@ alias postgres='postgres -D /usr/local/var/postgres'
 alias es='elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml'
 export JAVA_HOME=$(/usr/libexec/java_home)
 
-if `ls $(pwd) | grep Dockerfile` && [[ `docker-machine status default` =~ "Running" ]]; then
+if ls $(pwd) | grep 'Dockerfile' 2>&1 >> /dev/null && [[ `docker-machine status default` =~ "Running" ]]; then
   echo "Sourcing Docker-machine environment variables"
   eval $(docker-machine env default)
 fi
