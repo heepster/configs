@@ -25,6 +25,7 @@ alias r='echo "SSHing to openstack machine" && ssh kevin@$OSTACK_IP'
 alias o='echo ""SSHing to office machine" && ssh kevin@$OFFICE_IP'
 alias saveconfs='echo "Saving configuration files" && (cd $CONFIGS_DIR && git add . && git commit -m "Latest updates" && git push)'
 alias ha='ssh root@haproxy1 cat /etc/haproxy/haproxy.cfg'
+alias vine-m='mongo 10.20.10.147'
 
 # Launch process commands that I never remember
 alias postgres='postgres -D /usr/local/var/postgres'
