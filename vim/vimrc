@@ -11,6 +11,7 @@ set smartindent
 set title
 set restorescreen 
 set incsearch
+set hlsearch
 set ignorecase
 set smartcase
 set wildmode=longest,list,full
@@ -32,7 +33,10 @@ au BufNewFile,BufRead *.pegjs set filetype=javascript
 au BufNewFile,BufRead *.cap set filetype=ruby
 au BufNewFile,BufRead *.ejs set filetype=html
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby
-hi Search cterm=NONE ctermfg=black ctermbg=white
+hi Search cterm=NONE ctermfg=DarkRed ctermbg=DarkBlue
+
+" Press return to temporarily get out of a highlighted search
+:nnoremap <CR> :nohlsearch<CR><CR>
 
 " Pathogen
 execute pathogen#infect()
