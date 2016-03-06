@@ -7,7 +7,7 @@ alias f='cd ~/code/projects'
 alias w='cd ~/code/workspace'
 alias r='echo "SSHing to openstack machine" && ssh kevin@$OSTACK_IP'
 alias o='echo ""SSHing to office machine" && ssh kevin@$OFFICE_IP'
-alias save_configs='echo "Saving configuration files" && cd ~/code/projects/configs && git add . && git commit -m "Latest updates" && git push'
+alias save_configs='echo "Saving configuration files" && $(cd ~/code/projects/configs && git add . && git commit -m "Latest updates" && git push)'
 alias postgres='postgres -D /usr/local/var/postgres'
 alias es='elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml'
 export JAVA_HOME=$(/usr/libexec/java_home)
