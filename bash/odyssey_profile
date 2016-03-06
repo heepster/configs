@@ -24,6 +24,7 @@ alias b='cd $BIN_DIR'
 alias r='echo "SSHing to openstack machine" && ssh kevin@$OSTACK_IP'
 alias o='echo ""SSHing to office machine" && ssh kevin@$OFFICE_IP'
 alias saveconfs='echo "Saving configuration files" && (cd $CONFIGS_DIR && git add . && git commit -m "Latest updates" && git push)'
+alias ha='ssh root@haproxy1 cat /etc/haproxy/haproxy.cfg'
 
 # Launch process commands that I never remember
 alias postgres='postgres -D /usr/local/var/postgres'
