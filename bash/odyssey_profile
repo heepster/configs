@@ -26,12 +26,14 @@ alias o='echo ""SSHing to office machine" && ssh kevin@$OFFICE_IP'
 alias saveconfs='echo "Saving configuration files" && (cd $CONFIGS_DIR && git add . && git commit -m "Latest updates" && git push)'
 alias ha='ssh root@haproxy1 cat /etc/haproxy/haproxy.cfg'
 alias vine-m='mongo 10.20.10.147'
+alias dm='docker-machine'
+alias dme='eval $(docker-machine env dev)'
 
 # Launch process commands that I never remember
 alias postgres='postgres -D /usr/local/var/postgres'
 alias es='elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml'
 
-if ls $(pwd) | grep 'Dockerfile' 2>&1 >> /dev/null && [[ `docker-machine status default` =~ "Running" ]]; then
-  echo "Sourcing Docker-machine environment variables"
-  eval $(docker-machine env default)
-fi
+#if [[ `docker-machine status default` =~ "Running" ]]; then
+#  echo "Sourcing Docker-machine environment variables"
+#  eval $(docker-machine env dev)
+#fi
