@@ -37,3 +37,5 @@ alias es='elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsear
 #  echo "Sourcing Docker-machine environment variables"
 #  eval $(docker-machine env dev)
 #fi
+
+export PATH=/usr/local/sbin:$PATH
