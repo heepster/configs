@@ -28,6 +28,7 @@ alias ha='ssh root@haproxy1 cat /etc/haproxy/haproxy.cfg'
 alias vine-m='mongo 10.20.10.147'
 alias dm='docker-machine'
 alias dme='eval $(docker-machine env dev)'
+alias js="jq '.'"
 
 # Launch process commands that I never remember
 alias postgres='postgres -D /usr/local/var/postgres'
