@@ -5,7 +5,6 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set background=dark
-set nowrap
 set autoindent
 set smartindent
 set title
@@ -20,6 +19,7 @@ set showcmd
 set report=0
 set number
 set lazyredraw
+set ttyfast
 hi LineNr ctermfg=grey guifg=Black
 hi SignColumn ctermbg=232
 syntax on
@@ -35,23 +35,32 @@ au BufNewFile,BufRead *.ejs set filetype=html
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 hi Search cterm=NONE ctermfg=DarkRed ctermbg=DarkBlue
 
-" Press return to temporarily get out of a highlighted search
-:nnoremap <CR> :nohlsearch<CR><CR>
+"Press return to temporarily get out of a highlighted search
+nnoremap <CR> :nohlsearch<CR>
 
 " Pathogen
 execute pathogen#infect()
 
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-
 " Clojure
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ]
+
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
@@ -59,3 +68,4 @@ au Syntax * RainbowParenthesesLoadBraces
 
 let mapleader = ","
 
+"nnoremap <C-m> :call PareditToggle()
