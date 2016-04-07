@@ -29,6 +29,8 @@ alias vine-m='mongo 10.20.10.147'
 alias dm='docker-machine'
 alias docdev='eval $(docker-machine env dev)'
 alias docneu='eval $(docker-machine env neutronic)'
+alias mct='mvn clean test'
+alias mcj='mvn clean exec:java'
 alias js="jq '.'"
 
 # Launch process commands that I never remember

@@ -34,6 +34,8 @@ au BufNewFile,BufRead *.cap set filetype=ruby
 au BufNewFile,BufRead *.ejs set filetype=html
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 hi Search cterm=NONE ctermfg=DarkRed ctermbg=DarkBlue
+highlight Pmenu ctermbg=DarkGrey ctermfg=White
+highlight PmenuSel ctermbg=DarkGreen ctermfg=Black
 
 "Press return to temporarily get out of a highlighted search
 nnoremap <CR> :nohlsearch<CR>
