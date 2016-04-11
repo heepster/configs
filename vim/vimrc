@@ -70,4 +70,15 @@ au Syntax * RainbowParenthesesLoadBraces
 
 let mapleader = ","
 
-"nnoremap <C-m> :call PareditToggle()
+" Better ctrl-p mappings
+let g:ctrlp_prompt_mappings = {
+    \ 'PrtSelectMove("j")':   ['<c-j>', '<c-n>'],
+    \ 'PrtSelectMove("k")':   ['<c-k>', '<c-p>'],
+    \ 'PrtHistory(-1)':       ['<down>'],
+    \ 'PrtHistory(1)':        ['<up>'],
+    \ }"
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn|target)$',
+  \ 'file': '\v\.(exe|so|dll|log|class)$',
+  \ }
