@@ -24,3 +24,5 @@ alias docneu='eval $(docker-machine env neutronic)'
 alias mct='mvn clean test'
 alias mcj='mvn clean exec:java'
 alias js="jq '.'"
+
+
