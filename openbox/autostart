@@ -12,5 +12,8 @@ feh --bg-fill ~/Dropbox/Wallpapers/elephant.jpg
 # Keyboard Remapping
 xmodmap ~/.Xmodmap
 
+# Trackpad modifications
+synclient TapButton1=0 && synclient TapButton1=0 && synclient TapButton1=0 && synclient PalmDetect=1
+
 # Menubar
 # tint2 &
