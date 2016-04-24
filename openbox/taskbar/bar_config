@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# Configuration variables for dzen2 taskbar
+
+# Fonts
+FONT="Fantasque Sans Mono:size=14"
+ICON_FONT="FontAwesome:size=12"
+
+## COLORS
+FG="#d3d0c8"
+BG="#2d2d2d"
+
+## GEOMETRY
+PW=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
+PH=100
+PX=0
+PY=0
+
+## ICONS
+ICO_PREV='«'
+ICO_NEXT='»'
+BOLT_ICON="^fn($ICON_FONT) ^fn()"
+LIGHT_ICON="^fn($ICON_FONT) ^fn() "
+VOL_ICON="^fn($ICON_FONT) ^fn() "
+VOL_OFF_ICON="^fn($ICON_FONT) ^fn() "

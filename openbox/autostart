@@ -1,19 +1,21 @@
 # Openbox Autostart
 
-# Transparency
+## Transparency
 xcompmgr &
 
-# Screen Resolution
+## Screen Resolution
 xrandr -s 1920x1200
 
-# Wallpaper
+## Wallpaper
 feh --bg-fill ~/Dropbox/Wallpapers/elephant.jpg
 
-# Keyboard Remapping
+## Keyboard Remapping
 xmodmap ~/.Xmodmap
 
-# Trackpad modifications
+## Trackpad modifications
 synclient TapButton1=0 && synclient TapButton1=0 && synclient TapButton1=0 && synclient PalmDetect=1 &
 
-# Menubar
-# tint2 &
+## Menubar
+~/code/projects/configs/openbox/taskbar/bar &
+# Transparency
+transset .5 -n dzen

@@ -1,0 +1,41 @@
+#!/bin/bash
+#
+# dzen2 taskbar by heepster
+#
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source $DIR/bar_config
+
+function printDate() {
+  date '+%a %b %d %H:%M:%S'
+}
+
+function printVolume() {
+  vol=$(amixer -c 1 get Master | grep % | sed -n 1p | awk -F '[' '{print $2}' | awk -F ']' '{print $1}')
+
+  if [ $vol = '0%' ]; then
+    echo -e "${VOL_OFF_ICON}$vol"
+  else
+    echo -e "${VOL_ICON}$vol" 
+  fi
+}
+
+function printBrightness() {
+  brightness=$(xbacklight | cut -d '.' -f 1)
+  echo -e "${LIGHT_ICON}$brightness%"
+}
+
+function printBattery() {
+  batInfo=$(acpi)
+  if [[ $batInfo =~ .*Discharging.* ]]; then
+    echo -e "${BOLT_ICON}$(echo $batInfo | cut -d "," -f 2)"
+  elif [[ $batInfo =~ .*Full.* ]]; then
+    // Same as discharging, but eventually may want to change it
+    echo -e "${BOLT_ICON}$(echo $batInfo | cut -d "," -f 2)"
+  fi
+}
+
+while :; do
+  echo -e "$(printVolume)  $(printBrightness)  $(printBattery)   $(printDate) "
+	sleep 0.1
+done | dzen2 -p -fg "$FG" -bg "$BG" -fn "$FONT" -ta "r"
