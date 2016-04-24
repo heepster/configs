@@ -86,22 +86,13 @@
     <right>0</right>
   </margins>
   <keyboard>
+    <keybind key="W-Return">
+      <action name="ToggleFullscreen" />
+    </keybind>
     <keybind key="W-Tab">
       <action name="NextWindow">
         <allDesktops>yes</allDesktops>
         <raise>yes</raise>
-      </action>
-    </keybind>
-    <keybind key="W-Left">
-      <action name="SendToDesktop">
-        <to>left</to>
-        <wrap>yes</wrap>
-      </action>
-    </keybind>
-    <keybind key="W-Right">
-      <action name="SendToDesktop">
-        <to>right</to>
-        <wrap>yes</wrap>
       </action>
     </keybind>
     <keybind key="W-q">
@@ -149,12 +140,12 @@
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="W-Return">
+    <keybind key="A-Return">
       <action name="Execute">
         <command>gnome-terminal</command>
       </action>
     </keybind>
-    <keybind key="C-space">
+    <keybind key="A-space">
       <action name="Execute">
         <command>firefox</command>
       </action>
