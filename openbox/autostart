@@ -13,7 +13,7 @@ feh --bg-fill ~/Dropbox/Wallpapers/elephant.jpg
 xmodmap ~/.Xmodmap
 
 # Trackpad modifications
-synclient TapButton1=0 && synclient TapButton1=0 && synclient TapButton1=0 && synclient PalmDetect=1
+synclient TapButton1=0 && synclient TapButton1=0 && synclient TapButton1=0 && synclient PalmDetect=1 &
 
 # Menubar
 # tint2 &
