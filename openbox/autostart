@@ -1,0 +1,13 @@
+# Openbox Autostart
+
+# Transparency
+xcompmgr &
+
+# Screen Resolution
+xrandr -s 1920x1200
+
+# Wallpaper
+feh --bg-fill ~/Dropbox/Wallpapers/elephant.jpg
+
+# Menubar
+tint2 &

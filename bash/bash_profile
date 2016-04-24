@@ -61,8 +61,6 @@ if [ -f ~/.bash-colors ]; then
   source ~/.bash-colors
 fi
 
-# PS1
-PS1='\W $ '
 if [[ -f ~/.git-prompt.sh ]]; then
   source ~/.git-prompt.sh
 fi
@@ -72,8 +70,7 @@ if [[ -f /etc/bash_completion.d/git-prompt ]]; then
 fi
 
 GIT_PS1_SHOWDIRTYSTATE=true
-PS1="${LIGHT_GREEN}\w${NO_COLOR} $(__git_ps1 ${CYAN}"[%s]"${NO_COLOR})${LIGHT_PURPLE} >>${NO_COLOR} "
-
+PS1="${LIGHT_GREEN}\w${NO_COLOR} ${CYAN}\$(__git_ps1 "[%s]")${NO_COLOR}${LIGHT_PURPLE} >>${NO_COLOR} "
 
 # COMPUTER SPECIFIC
 if [ -f "${HOME}/.local_bash_profile" ]; then
