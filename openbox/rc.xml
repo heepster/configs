@@ -280,24 +280,14 @@
         <height>90%</height>
       </size>
     </application>
-    <application title="tint2">
-      <position>
-        <x>0</x>
-        <y>0</y>
-      </position>
-      <size>
-        <width>100%</width>
-        <height>100%</height>
-      </size>
-    </application>
     <application title="Terminal">
       <position>
         <x>center</x>
         <y>center</y>
       </position>
       <size>
-        <width>85%</width>
-        <height>85%</height>
+        <width>90%</width>
+        <height>90%</height>
       </size>
       <decor>no</decor>
     </application>

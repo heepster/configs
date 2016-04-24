@@ -1,6 +1,6 @@
-# Openbox Autostart
+# OPENBOX AUTOSTART
 
-## Transparency
+## Transparency for all windows
 xcompmgr &
 
 ## Screen Resolution
@@ -17,5 +17,9 @@ synclient TapButton1=0 && synclient TapButton1=0 && synclient TapButton1=0 && sy
 
 ## Menubar
 ~/code/projects/configs/openbox/taskbar/bar &
-# Transparency
-transset .5 -n dzen
+
+# Menubar Transparency
+until transset .6 -n dzen
+do # Keep doing this until dzen comes up
+  sleep 1
+done

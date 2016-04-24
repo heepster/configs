@@ -7,32 +7,45 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $DIR/bar_config
 
 function printDate() {
-  date '+%a %b %d %H:%M:%S'
+  echo -e "^fg($BROWN)$(date '+%a %b %d %I:%M:%S')^fg()"
 }
 
 function printVolume() {
   vol=$(amixer -c 1 get Master | grep % | sed -n 1p | awk -F '[' '{print $2}' | awk -F ']' '{print $1}')
 
   if [ $vol = '0%' ]; then
-    echo -e "${VOL_OFF_ICON}$vol"
+    echo -e "^fg($RED)${VOL_OFF_ICON}^fg()$vol"
   else
-    echo -e "${VOL_ICON}$vol" 
+    echo -e "^fg($BLUE)${VOL_ICON}^fg()$vol" 
   fi
 }
 
 function printBrightness() {
   brightness=$(xbacklight | cut -d '.' -f 1)
-  echo -e "${LIGHT_ICON}$brightness%"
+  echo -e "^fg($YELLOW)${LIGHT_ICON}^fg()$brightness%"
 }
 
 function printBattery() {
   batInfo=$(acpi)
-  if [[ $batInfo =~ .*Discharging.* ]]; then
-    echo -e "${BOLT_ICON}$(echo $batInfo | cut -d "," -f 2)"
-  elif [[ $batInfo =~ .*Full.* ]]; then
-    // Same as discharging, but eventually may want to change it
-    echo -e "${BOLT_ICON}$(echo $batInfo | cut -d "," -f 2)"
+  batPercentage=$(echo $batInfo | cut -d ',' -f 2 | cut -d '%' -f 1)
+
+  if [[ $batInfo =~ .*Discharging.* || $batInfo =~ .*Full.* ]]; then
+    if [[ "$batPercentage" -gt "90" ]]; then
+      BAT_ICON=$BAT_4_ICON
+    elif [[ "$batPercentage" -gt "70" ]]; then
+      BAT_ICON=$BAT_3_ICON
+    elif [[ "$batPercentage" -gt "40" ]]; then
+      BAT_ICON=$BAT_2_ICON
+    elif [[ "$batPercentage" -gt "10" ]]; then
+      BAT_ICON=$BAT_1_ICON
+    else
+      BAT_ICON=$BAT_0_ICON
+    fi
+  elif [[ $batInfo =~ .*Charging.* ]]; then
+    BAT_ICON="^fg($GREEN)$BOLT_ICON^fg()"
   fi
+
+  echo -e "${BAT_ICON}${batPercentage}%"
 }
 
 while :; do

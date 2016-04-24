@@ -7,8 +7,13 @@ FONT="Fantasque Sans Mono:size=14"
 ICON_FONT="FontAwesome:size=12"
 
 ## COLORS
-FG="#d3d0c8"
+FG="#D4F7FC"
 BG="#2d2d2d"
+RED="#E6B8C7"
+BLUE="#9CC0F0"
+YELLOW="#E8E0AC"
+GREEN="#A1D490"
+BROWN="#D1C19D"
 
 ## GEOMETRY
 PW=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
@@ -20,6 +25,12 @@ PY=0
 ICO_PREV='«'
 ICO_NEXT='»'
 BOLT_ICON="^fn($ICON_FONT) ^fn()"
+BAT_4_ICON="^fn($ICON_FONT) ^fn()"
+BAT_3_ICON="^fn($ICON_FONT) ^fn()"
+BAT_2_ICON="^fn($ICON_FONT)^ ^fn()"
+BAT_1_ICON="^fn($ICON_FONT)^ ^fn()"
+BAT_0_ICON="^fn($ICON_FONT) ^fn()"
+
 LIGHT_ICON="^fn($ICON_FONT) ^fn() "
 VOL_ICON="^fn($ICON_FONT) ^fn() "
 VOL_OFF_ICON="^fn($ICON_FONT) ^fn() "
