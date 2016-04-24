@@ -1,37 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openbox_config xmlns="http://openbox.org/3.4/rc" xmlns:xi="http://www.w3.org/2001/XInclude">
-
   <resistance>
     <strength>0</strength>
     <screen_edge_strength>32</screen_edge_strength>
   </resistance>
-
   <focus>
     <focusNew>yes</focusNew>
-    <followMouse>yes</followMouse>
+    <followMouse>no</followMouse>
     <focusLast>yes</focusLast>
     <underMouse>yes</underMouse>
     <focusDelay>0</focusDelay>
     <raiseOnFocus>no</raiseOnFocus>
   </focus>
-
   <placement>
     <policy>UnderMouse</policy>
     <center>yes</center>
     <monitor>Any</monitor>
-    <primaryMonitor></primaryMonitor>
+    <primaryMonitor/>
   </placement>
-
   <theme>
-    <name>Nightmare</name>
+    <name>odyssey</name>
     <titleLayout>CSLM</titleLayout>
-    <keepBorder>yes</keepBorder>
+    <keepBorder>no</keepBorder>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
       <name>sans</name>
-      <size>0</size>
-      <weight>normal</weight>
-      <slant>normal</slant>
+      <size>10</size>
+      <weight>Normal</weight>
+      <slant>Normal</slant>
     </font>
     <font place="InactiveWindow">
       <name>sans</name>
@@ -64,18 +60,16 @@
       <slant>normal</slant>
     </font>
   </theme>
-
   <desktops>
     <firstdesk>1</firstdesk>
     <number>3</number>
-    <popupTime>1</popupTime>
+    <popupTime>500</popupTime>
     <names>
       <name>main</name>
       <name>media</name>
       <name>var</name>
     </names>
   </desktops>
-
   <resize>
     <drawContents>yes</drawContents>
     <popupShow>Never</popupShow>
@@ -85,14 +79,12 @@
       <y>0</y>
     </popupFixedPosition>
   </resize>
-
   <margins>
     <top>0</top>
     <bottom>32</bottom>
     <left>0</left>
     <right>0</right>
   </margins>
-
   <keyboard>
     <keybind key="W-Tab">
       <action name="NextWindow">
@@ -167,7 +159,6 @@
       </action>
     </keybind>
   </keyboard>
-
   <mouse>
     <dragThreshold>1</dragThreshold>
     <doubleClickTime>500</doubleClickTime>
@@ -257,7 +248,6 @@
       </mousebind>
     </context>
   </mouse>
-
   <menu>
     <file>menu.xml</file>
     <hideDelay>200</hideDelay>
@@ -267,9 +257,8 @@
     <showIcons>no</showIcons>
     <manageDesktops>no</manageDesktops>
   </menu>
-
   <applications>
-    <application class="*"> 
+    <application class="*">
       <position>
         <x>center</x>
         <y>7%</y>
@@ -301,7 +290,6 @@
       <decor>no</decor>
     </application>
   </applications>
-
   <dock>
     <position>TopLeft</position>
     <floatingX>0</floatingX>
@@ -313,5 +301,4 @@
     <hideDelay>300</hideDelay>
     <showDelay>300</showDelay>
   </dock>
-
 </openbox_config>

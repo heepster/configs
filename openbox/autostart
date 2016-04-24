@@ -10,4 +10,4 @@ xrandr -s 1920x1200
 feh --bg-fill ~/Dropbox/Wallpapers/elephant.jpg
 
 # Menubar
-tint2 &
+# tint2 &
