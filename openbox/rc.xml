@@ -261,7 +261,7 @@
     <application class="*">
       <position>
         <x>center</x>
-        <y>7%</y>
+        <y>center</y>
       </position>
       <size>
         <width>90%</width>
@@ -281,11 +281,11 @@
     <application title="Terminal">
       <position>
         <x>center</x>
-        <y>7%</y>
+        <y>center</y>
       </position>
       <size>
-        <width>80%</width>
-        <height>80%</height>
+        <width>85%</width>
+        <height>85%</height>
       </size>
       <decor>no</decor>
     </application>
