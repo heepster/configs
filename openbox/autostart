@@ -9,5 +9,8 @@ xrandr -s 1920x1200
 # Wallpaper
 feh --bg-fill ~/Dropbox/Wallpapers/elephant.jpg
 
+# Keyboard Remapping
+xmodmap ~/.Xmodmap
+
 # Menubar
 # tint2 &
