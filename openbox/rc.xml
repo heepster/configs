@@ -65,9 +65,9 @@
     <number>3</number>
     <popupTime>500</popupTime>
     <names>
-      <name>main</name>
-      <name>media</name>
-      <name>var</name>
+      <name>Primary</name>
+      <name>Secondary</name>
+      <name>Variable</name>
     </names>
   </desktops>
   <resize>
@@ -88,6 +88,7 @@
   <keyboard>
     <keybind key="W-Tab">
       <action name="NextWindow">
+        <allDesktops>yes</allDesktops>
         <raise>yes</raise>
       </action>
     </keybind>

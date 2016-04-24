@@ -14,19 +14,11 @@
 
 <menu id="system-menu" label="System">
 	<item label="Logout">
-		<action name="openbox --exit" />
-	</item>
-	<separator />
-	<item label="Reboot">
-		<action name="gnome-session-quit --reboot" />
-	</item>
-	<separator />
-	<item label="Shutdown">
-		<action name="gnome-session-quit --power-off" />
+		<action name="Exit" />
 	</item>
 	<separator />
 	<item label="Reconfigure Openbox">
-    <action name="Reconfigure"><command>openbox --reconfigre</command></action>
+    <action name="Reconfigure"/ >
 	</item>
 </menu>
 
