@@ -6,6 +6,19 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $DIR/bar_config
 
+function printMusic() {
+  info=$(cmus-remote -Q)
+
+  if [[ $? -eq 0 ]]; then
+    status=$(echo -e "$info" | grep status | cut -d ' ' -f 2)
+    artist=$(echo -e "$info" | grep artist | cut -d ' ' -f 3- | head -n 1)
+    song=$(echo -e "$info" | grep title | cut -d ' ' -f 3- | head -n 1)
+    echo "${MUSIC_ICON}  ${artist} - ${song}"
+  else
+    echo ""
+  fi
+}
+
 function printDate() {
   echo -e "^fg($BROWN)$(date '+%a %b %d %I:%M:%S')^fg()"
 }
@@ -49,6 +62,6 @@ function printBattery() {
 }
 
 while :; do
-  echo -e "$(printVolume)  $(printBrightness)  $(printBattery)   $(printDate) "
+  echo -e "$(printMusic)       $(printVolume)  $(printBrightness)  $(printBattery)       $(printDate) "
 	sleep 0.1
 done | dzen2 -p -fg "$FG" -bg "$BG" -fn "$FONT" -ta "r"

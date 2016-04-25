@@ -86,16 +86,6 @@
     <right>0</right>
   </margins>
   <keyboard>
-    <keybind key="F11">
-      <action name="Execute">
-        <command>amixer -c 1 set Master 10%-</command>
-      </action>
-    </keybind>
-    <keybind key="F12">
-      <action name="Execute">
-        <command>amixer -c 1 set Master 10%+</command>
-      </action>
-    </keybind>
     <keybind key="F1">
       <action name="Execute">
         <command>xbacklight -dec 10</command>
@@ -104,6 +94,36 @@
     <keybind key="F2">
       <action name="Execute">
         <command>xbacklight -inc 10</command>
+      </action>
+    </keybind>
+    <keybind key="F7">
+      <action name="Execute">
+        <command>cmus-remote -p</command>
+      </action>
+    </keybind>
+    <keybind key="F8">
+      <action name="Execute">
+        <command>cmus-remote -u</command>
+      </action>
+    </keybind>
+    <keybind key="F9">
+      <action name="Execute">
+        <command>cmus-remote -n</command>
+      </action>
+    </keybind>
+    <keybind key="F10">
+      <action name="Execute">
+        <command>amixer -c 1 set Master 0%</command>
+      </action>
+    </keybind>
+    <keybind key="F11">
+      <action name="Execute">
+        <command>amixer -c 1 set Master 3%-</command>
+      </action>
+    </keybind>
+    <keybind key="F12">
+      <action name="Execute">
+        <command>amixer -c 1 set Master 3%+</command>
       </action>
     </keybind>
     <keybind key="W-Return">

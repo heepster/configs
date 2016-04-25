@@ -14,6 +14,7 @@ BLUE="#9CC0F0"
 YELLOW="#E8E0AC"
 GREEN="#A1D490"
 BROWN="#D1C19D"
+PURPLE="#EFCEF2"
 
 ## GEOMETRY
 PW=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
@@ -28,7 +29,11 @@ END_FONT="^fn()"
 GREEN_FONT="^fg($GREEN)"
 YELLOW_FONT="^fg($YELLOW)"
 RED_FONT="^fg($RED)"
+PURPLE_FONT="^fg($PURPLE)"
 END_FG="^fg()"
+
+# MUSIC
+MUSIC_ICON="${PURPLE_FONT}${BEGIN_ICON_FONT}${END_FONT}${END_FG}"
 
 # BATTERY
  BOLT_ICON="${GREEN_FONT}${BEGIN_ICON_FONT} $END_FONT$END_FG"
