@@ -42,7 +42,7 @@ function printBattery() {
       BAT_ICON=$BAT_0_ICON
     fi
   elif [[ $batInfo =~ .*Charging.* ]]; then
-    BAT_ICON="^fg($GREEN)$BOLT_ICON^fg()"
+    BAT_ICON="$BOLT_ICON"
   fi
 
   echo -e "${BAT_ICON}${batPercentage}%"
