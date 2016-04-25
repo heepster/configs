@@ -18,11 +18,8 @@ alias r='echo "SSHing to openstack machine" && ssh kevin@$OSTACK_IP'
 alias saveconfs='echo "Saving configuration files" && (cd $CONFIGS_DIR && git add . && git commit -m "Latest updates" && git push)'
 alias ha='ssh root@haproxy1 cat /etc/haproxy/haproxy.cfg'
 alias vine-m='mongo 10.20.10.147'
-alias dm='docker-machine'
 alias docdev='eval $(docker-machine env dev)'
 alias docneu='eval $(docker-machine env neutronic)'
-alias mct='mvn clean test'
-alias mcj='mvn clean exec:java'
+alias mcc='mvn clean compile'
+alias mej='mvn exec:java'
 alias js="jq '.'"
-
-
