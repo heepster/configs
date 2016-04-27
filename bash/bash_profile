@@ -1,3 +1,5 @@
+
+## ALIASES
 alias c='clear'
 alias tl='tmux list-sessions'
 alias ta='tmux attach -t'
@@ -5,6 +7,13 @@ alias gd='git diff HEAD *'
 alias gs='git status'
 alias gc='git commit -m'
 alias ga='git add .'
+
+# Exec into most recent docker container
+alias de="export ID=\$(docker ps | grep -v CONTAINER | awk '{print \$1}' | head -n 1); docker exec -it \$ID /bin/bash"
+
+# Kill most recent docker container
+alias dk="export ID=\$(docker ps | grep -v CONTAINER | awk '{print \$1}' | head -n 1); docker kill $ID"
+
 export HISTCONTROL="erasedups:ignoreboth"
 export HISTFILESIZE=500000
 export HISTSIZE=100000
