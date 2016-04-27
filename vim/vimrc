@@ -82,3 +82,7 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn|target)$',
   \ 'file': '\v\.(exe|so|dll|log|class)$',
   \ }
+
+" Fish
+autocmd FileType fish compiler fish
+
