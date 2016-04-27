@@ -15,7 +15,7 @@ abbr -a f "cd $PROJECTS_DIR"
 abbr -a w "cd $WORKSPACE_DIR"
 abbr -a b "cd $BIN_DIR"
 abbr -a r "echo 'SSHing to openstack machine'; and ssh kevin@$OSTACK_IP"
-abbr -a sc 'echo "Saving configuration files"; and (cd $CONFIGS_DIR; and git add .; and git commit -m "Latest updates"; and git push)'
+abbr -a sc 'echo "Saving configuration files"; and cd $CONFIGS_DIR; and git add .; and git commit -m "Latest updates"; and git push'
 
 ## MAVEN
 
