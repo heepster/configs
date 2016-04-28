@@ -1,0 +1,5 @@
+#!/bin/bash
+
+WALLPAPER="$HOME/Dropbox/Wallpapers/elephant.jpg"
+
+feh --bg-fill $WALLPAPER

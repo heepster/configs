@@ -7,7 +7,7 @@ xcompmgr -cf -D 5 &
 ~/code/projects/configs/openbox/reconfigure-screens
 
 ## Wallpaper
-feh --bg-fill ~/Dropbox/Wallpapers/elephant.jpg
+~/code/projects/configs/openbox/set-walpaper
 
 ## Keyboard Remapping
 xmodmap ~/.Xmodmap

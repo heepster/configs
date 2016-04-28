@@ -70,4 +70,4 @@ function printBattery() {
 while :; do
   echo -e "$(printDesktop)      $(printMusic)       $(printVolume)  $(printBrightness)  $(printBattery)       $(printDate)  "
 	sleep 0.1
-done | dzen2 -p -fg "$FG" -bg "$BG" -fn "$FONT" -ta "r"
+done | dzen2 -p -fg "$FG" -bg "$BG" -fn "$FONT" -ta "r" -xs 1

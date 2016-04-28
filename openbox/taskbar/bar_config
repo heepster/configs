@@ -18,8 +18,8 @@ PURPLE="#EFCEF2"
 
 ## GEOMETRY
 PW=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
-PH=100
-PX=0
+PH=120
+PX=-1920
 PY=0
 
 ## ICONS
