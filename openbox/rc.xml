@@ -16,7 +16,7 @@
     <policy>UnderMouse</policy>
     <center>yes</center>
     <monitor>Any</monitor>
-    <primaryMonitor/>
+    <primaryMonitor>Active</primaryMonitor>
   </placement>
   <theme>
     <name>odyssey</name>
@@ -132,7 +132,7 @@
       </action>
     </keybind>
     <keybind key="W-Return">
-       <action name="ToggleFullscreen" />
+      <action name="ToggleFullscreen"/>
     </keybind>
     <keybind key="W-Tab">
       <action name="NextWindow">
