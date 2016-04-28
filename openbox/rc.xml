@@ -63,7 +63,7 @@
   <desktops>
     <firstdesk>1</firstdesk>
     <number>3</number>
-    <popupTime>500</popupTime>
+    <popupTime>0</popupTime>
     <names>
       <name>Primary</name>
       <name>Secondary</name>

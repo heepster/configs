@@ -1,7 +1,7 @@
 # OPENBOX AUTOSTART
 
 ## Transparency and fade effects for all windows
-xcompmgr -cf -D 10 &
+xcompmgr -cf -D 5 &
 
 ## Screen Resolution
 ~/code/projects/configs/openbox/reconfigure-screens
