@@ -96,6 +96,11 @@
         <command>xbacklight -inc 10</command>
       </action>
     </keybind>
+    <keybind key="F3">
+      <action name="Execute">
+        <command>reconfigure-screens</command>
+      </action>
+    </keybind>
     <keybind key="F7">
       <action name="Execute">
         <command>cmus-remote -p</command>

@@ -1,0 +1,26 @@
+#!/bin/bash
+
+LAPTOP_DISPLAY="eDP1"
+FIRST_DISPLAY_PORT="DP1"
+SECOND_DISPLAY_PORT="HDMI1" # Second display port is listed as HDMI1 for some reason
+
+LAPTOP_RES="1920x1200"
+
+NUM_CONNECTED=$(xrandr | grep " connected" | wc -l)
+
+echo "Number of displays: $NUM_CONNECTED"
+echo "Reconfiguring..."
+
+if [[ $NUM_CONNECTED -eq 1 ]]; then
+
+  xrandr --auto --output $LAPTOP_DISPLAY --mode $LAPTOP_RES
+  
+elif [[ $NUM_CONNECTED -eq 2 ]]; then
+
+  xrandr --auto --output $LAPTOP_DISPLAY --mode $LAPTOP_RES --left-of $FIRST_DISPLAY_PORT
+
+elif [[ $NUM_CONNECTED -eq 3 ]]; then
+
+  xrandr --auto --output $LAPTOP_DISPLAY --mode $LAPTOP_RES --left-of $FIRST_DISPLAY_PORT --output $SECOND_DISPLAY_PORT --right-of $FIRST_DISPLAY_PORT
+
+fi

@@ -4,7 +4,7 @@
 xcompmgr &
 
 ## Screen Resolution
-xrandr -s 1920x1200
+~/code/projects/configs/openbox/reconfigure-screens
 
 ## Wallpaper
 feh --bg-fill ~/Dropbox/Wallpapers/elephant.jpg

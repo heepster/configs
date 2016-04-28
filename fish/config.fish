@@ -38,7 +38,7 @@ abbr -a gr "git reset HEAD "
 ## DOCKER
 
 # Exec into most recent docker container
-abbr -a de "set ID (docker ps | grep -v CONTAINER | awk '{print $1}' | head -n 1); docker exec -it \$ID /bin/bash"
+abbr -a de "set ID (docker ps | grep -v CONTAINER | awk '{print \$1}' | head -n 1); docker exec -it \$ID /bin/bash"
 
 # Kill most recent docker container
-abbr -a dk "set ID (docker ps | grep -v CONTAINER | awk '{print $1}' | head -n 1); docker kill \$ID"
+abbr -a dk "set ID (docker ps | grep -v CONTAINER | awk '{print \$1}' | head -n 1); docker kill \$ID"
