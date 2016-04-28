@@ -3,8 +3,14 @@
 # dzen2 taskbar by heepster
 #
 
+TOTAL_DESKTOPS=3 # how to get this programmatically?
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $DIR/bar_config
+
+function printDesktop () {
+  #echo "^pa(-300)${DESKTOP_ICON} $(($(xprop -root _NET_CURRENT_DESKTOP | cut -d '=' -f '2') + 1)) / ^fg($BLUE)$TOTAL_DESKTOPS^fg()^p()"
+  echo "^pa(0,0)^p(-1000)${DESKTOP_ICON} $(($(xprop -root _NET_CURRENT_DESKTOP | cut -d '=' -f '2') + 1)) / ^fg($BLUE)$TOTAL_DESKTOPS^fg()^p()"
+}
 
 function printMusic() {
   info=$(cmus-remote -Q)
@@ -62,6 +68,6 @@ function printBattery() {
 }
 
 while :; do
-  echo -e "$(printMusic)       $(printVolume)  $(printBrightness)  $(printBattery)       $(printDate) "
+  echo -e "$(printDesktop)      $(printMusic)       $(printVolume)  $(printBrightness)  $(printBattery)       $(printDate)  "
 	sleep 0.1
 done | dzen2 -p -fg "$FG" -bg "$BG" -fn "$FONT" -ta "r"
