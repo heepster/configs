@@ -24,24 +24,27 @@ hi LineNr ctermfg=grey guifg=Black
 hi SignColumn ctermbg=232
 syntax on
 syntax enable
-filetype on
-filetype plugin indent on
 map <C-s> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 silent !stty -ixon > /dev/null 2>/dev/null
-au BufNewFile,BufRead *.ms set filetype=javascript
-au BufNewFile,BufRead *.pegjs set filetype=javascript
-au BufNewFile,BufRead *.cap set filetype=ruby
-au BufNewFile,BufRead *.ejs set filetype=html
-autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 hi Search cterm=NONE ctermfg=DarkRed ctermbg=DarkBlue
 highlight Pmenu ctermbg=DarkGrey ctermfg=White
 highlight PmenuSel ctermbg=DarkGreen ctermfg=Black
-
-"Press return to temporarily get out of a highlighted search
 nnoremap <CR> :nohlsearch<CR>
 
-" Pathogen
-execute pathogen#infect()
+" PLUGINS
+" Vundle manages plugin installation
+" Just run :PluginInstall
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'dag/vim-fish'
+call vundle#end()
+
+filetype plugin indent on  
 
 " Clojure
 let g:rbpt_colorpairs = [
@@ -83,6 +86,9 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll|log|class)$',
   \ }
 
-" Fish
-autocmd FileType fish compiler fish
-
+au FileType fish compiler fish
+au BufNewFile,BufRead *.ms set filetype=javascript
+au BufNewFile,BufRead *.pegjs set filetype=javascript
+au BufNewFile,BufRead *.cap set filetype=ruby
+au BufNewFile,BufRead *.ejs set filetype=html
+au BufNewFile,BufRead Gemfile set filetype=ruby
