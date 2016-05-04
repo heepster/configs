@@ -42,6 +42,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'dag/vim-fish'
+Plugin 'ervandew/supertab'
 call vundle#end()
 
 filetype plugin indent on  

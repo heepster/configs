@@ -42,3 +42,4 @@ abbr -a de "set ID (docker ps | grep -v CONTAINER | awk '{print \$1}' | head -n 
 
 # Kill most recent docker container
 abbr -a dk "set ID (docker ps | grep -v CONTAINER | awk '{print \$1}' | head -n 1); docker kill \$ID"
+rvm default
