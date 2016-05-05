@@ -30,6 +30,7 @@ hi Search cterm=NONE ctermfg=DarkRed ctermbg=DarkBlue
 highlight Pmenu ctermbg=DarkGrey ctermfg=White
 highlight PmenuSel ctermbg=DarkGreen ctermfg=Black
 nnoremap <CR> :nohlsearch<CR>
+let mapleader = ","
 
 " PLUGINS
 " Vundle manages plugin installation
@@ -45,11 +46,12 @@ Plugin 'dag/vim-fish'
 Plugin 'ervandew/supertab'
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdTree'
+Plugin 'elzr/vim-json'
 call vundle#end()
-
 filetype plugin indent on  
 
-" Clojure
+
+""" RAINBOW PARENTHESES
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['darkgreen',   'firebrick3'],
@@ -74,9 +76,8 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-let mapleader = ","
 
-" Better ctrl-p mappings
+""" CTRL-P
 let g:ctrlp_prompt_mappings = {
     \ 'PrtSelectMove("j")':   ['<c-j>', '<c-n>'],
     \ 'PrtSelectMove("k")':   ['<c-k>', '<c-p>'],
@@ -89,12 +90,21 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll|log|class)$',
   \ }
 
+
+""" NERDTREE
+map <C-t> :NERDTreeToggle<CR>
+
+
+""" JSON-VIM
+let g:vim_json_syntax_conceal = 0
+
+
+""" FILE SPECIFIC
 au FileType fish compiler fish
 au BufNewFile,BufRead *.ms set filetype=javascript
 au BufNewFile,BufRead *.pegjs set filetype=javascript
 au BufNewFile,BufRead *.cap set filetype=ruby
 au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead Gemfile set filetype=ruby
+au! BufRead,BufNewFile *.json set filetype=json
 
-" NerdTree
-map <C-t> :NERDTreeToggle<CR>
