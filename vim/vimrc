@@ -43,6 +43,8 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'dag/vim-fish'
 Plugin 'ervandew/supertab'
+Plugin 'mileszs/ack.vim'
+Plugin 'scrooloose/nerdTree'
 call vundle#end()
 
 filetype plugin indent on  
@@ -93,3 +95,6 @@ au BufNewFile,BufRead *.pegjs set filetype=javascript
 au BufNewFile,BufRead *.cap set filetype=ruby
 au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead Gemfile set filetype=ruby
+
+" NerdTree
+map <C-t> :NERDTreeToggle<CR>
