@@ -47,6 +47,7 @@ Plugin 'ervandew/supertab'
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdTree'
 Plugin 'elzr/vim-json'
+Plugin 'vim-scripts/cSyntaxAfter'
 call vundle#end()
 filetype plugin indent on  
 
@@ -107,4 +108,5 @@ au BufNewFile,BufRead *.cap set filetype=ruby
 au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead Gemfile set filetype=ruby
 au! BufRead,BufNewFile *.json set filetype=json
+au! FileType c,cpp,java,php call CSyntaxAfter()
 
