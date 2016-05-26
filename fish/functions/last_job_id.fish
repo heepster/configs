@@ -1,0 +1,1 @@
+/home/kevin/.config/fisherman/last_job_id/functions/last_job_id.fish

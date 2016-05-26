@@ -1,0 +1,1 @@
+/home/kevin/.config/fisherman/fin/completions/fin.fish

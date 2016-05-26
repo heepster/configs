@@ -1,0 +1,1 @@
+/home/kevin/.config/fisherman/get_file_age/functions/get_file_age.fish

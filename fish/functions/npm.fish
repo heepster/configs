@@ -1,0 +1,1 @@
+/home/kevin/.config/fisherman/fin/functions/npm.fish
