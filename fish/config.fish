@@ -35,6 +35,11 @@ abbr -a gc "git commit -m"
 abbr -a gs "git status"
 abbr -a gr "git reset HEAD "
 
+## NVM
+abbr -a bsn "bass source ~/.nvm/nvm.sh --no-use ';'"
+abbr -a nvm "bass source ~/.nvm/nvm.sh --no-use ';' nvm"
+abbr -a npm "bass source ~/.nvm/nvm.sh --no-use ';' npm"
+
 ## DOCKER
 
 # Exec into most recent docker container
