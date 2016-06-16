@@ -25,7 +25,10 @@ hi LineNr ctermfg=grey guifg=Black
 hi SignColumn ctermbg=232
 syntax on
 syntax enable
-map <C-s> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+map <C-g> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+map <C-s> :execute "so $MYVIMRC"<CR>
+imap <C-c> console.log()<Esc>i
+imap <C-s> System.out.println();<Esc>hi
 silent !stty -ixon > /dev/null 2>/dev/null
 hi Search cterm=NONE ctermfg=DarkRed ctermbg=DarkBlue
 highlight Pmenu ctermbg=DarkGrey ctermfg=White
@@ -51,9 +54,10 @@ Plugin 'elzr/vim-json'
 Plugin 'vim-scripts/cSyntaxAfter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'scrooloose/syntastic'
 call vundle#end()
 filetype plugin indent on  
-
 
 """ RAINBOW PARENTHESES
 let g:rbpt_colorpairs = [
@@ -80,7 +84,6 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-
 """ CTRL-P
 let g:ctrlp_prompt_mappings = {
     \ 'PrtSelectMove("j")':   ['<c-j>', '<c-n>'],
@@ -94,14 +97,14 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll|log|class)$',
   \ }
 
-
 """ NERDTREE
-map <C-t> :NERDTreeToggle<CR>
-
+map <C-e> :NERDTreeToggle<CR>
+let NERDTreeMapOpenVSplit = '<C-v>'
+let NERDTreeMapOpenInTab = '<C-t>'
+let NERDTreeMapOpenSplit = '<C-s>'
 
 """ JSON-VIM
 let g:vim_json_syntax_conceal = 0
-
 
 """ EASY MOTION
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
@@ -122,14 +125,25 @@ let g:EasyMotion_smartcase = 1
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
+""" SYNTASTIC
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
 
 """ FILE SPECIFIC
 au FileType fish compiler fish
 au BufNewFile,BufRead *.ms set filetype=javascript
 au BufNewFile,BufRead *.pegjs set filetype=javascript
+au BufNewFile,BufRead *.jsx set filetype=javascript
+au BufNewFile,BufRead *.cjsx set filetype=javascript
 au BufNewFile,BufRead *.cap set filetype=ruby
 au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead Gemfile set filetype=ruby
 au! BufRead,BufNewFile *.json set filetype=json
 au! FileType c,cpp,java,php call CSyntaxAfter()
-
