@@ -27,6 +27,7 @@ syntax on
 syntax enable
 map <C-g> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 map <C-s> :execute "so $MYVIMRC"<CR>
+map <C-l> :execute "lopen"<CR>
 imap <C-c> console.log()<Esc>i
 imap <C-s> System.out.println();<Esc>hi
 silent !stty -ixon > /dev/null 2>/dev/null
@@ -50,6 +51,7 @@ Plugin 'dag/vim-fish'
 Plugin 'ervandew/supertab'
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdTree'
+Bundle 'jistr/vim-nerdtree-tabs'
 Plugin 'elzr/vim-json'
 Plugin 'vim-scripts/cSyntaxAfter'
 Plugin 'tpope/vim-fugitive'
@@ -98,7 +100,7 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 """ NERDTREE
-map <C-e> :NERDTreeToggle<CR>
+map <C-e> :NERDTreeTabsToggle<CR>
 let NERDTreeMapOpenVSplit = '<C-v>'
 let NERDTreeMapOpenInTab = '<C-t>'
 let NERDTreeMapOpenSplit = '<C-s>'
@@ -131,10 +133,11 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_enable_signs = 0
 
 """ FILE SPECIFIC
 au FileType fish compiler fish

@@ -7,7 +7,16 @@
             "impliedStrict": true
         }
     },
+    "extends": [ "eslint:recommended", "plugin:react/recommended" ],
+    "env": {
+      "browser": true,
+      "node": true
+    },
     "rules": {
-        "semi": 2
-    }
+      "no-mixed-spaces-and-tabs": "warn",
+      "no-unused-vars": "warn"
+    },
+    "plugins": [
+      "react"
+    ]
 }
