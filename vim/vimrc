@@ -57,6 +57,7 @@ Plugin 'vim-scripts/cSyntaxAfter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/syntastic'
 call vundle#end()
 filetype plugin indent on  
