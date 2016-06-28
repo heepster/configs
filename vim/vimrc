@@ -28,7 +28,7 @@ syntax enable
 map <C-g> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 map <C-s> :execute "so $MYVIMRC"<CR>
 map <C-l> :execute "lopen"<CR>
-imap <C-c> console.log()<Esc>i
+imap <C-c> console.log();<Esc>hi
 imap <C-s> System.out.println();<Esc>hi
 silent !stty -ixon > /dev/null 2>/dev/null
 hi Search cterm=NONE ctermfg=DarkRed ctermbg=DarkBlue
