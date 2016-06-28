@@ -59,8 +59,12 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/syntastic'
+Plugin 'airblade/vim-gitgutter'
 call vundle#end()
 filetype plugin indent on  
+
+""" SUPERTAB
+let g:SuperTabDefaultCompletionType = 'context'
 
 """ RAINBOW PARENTHESES
 let g:rbpt_colorpairs = [
@@ -139,6 +143,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_enable_signs = 0
+
+""" VIM GUTTER
+let g:gitgutter_sign_column_always = 1
 
 """ FILE SPECIFIC
 au FileType fish compiler fish
