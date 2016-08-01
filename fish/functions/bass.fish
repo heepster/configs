@@ -1,1 +1,1 @@
-/home/kevin/.config/fisherman/bass/functions/bass.fish
+/Users/kevin/.config/fisherman/bass/functions/bass.fish

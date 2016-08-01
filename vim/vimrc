@@ -58,7 +58,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'pangloss/vim-javascript'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
 call vundle#end()
 filetype plugin indent on  
@@ -100,7 +100,7 @@ let g:ctrlp_prompt_mappings = {
     \ }"
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn|target)$',
+  \ 'dir':  '\v[\/]\.(git|hg|svn|target)$|node_modules|target|dist',
   \ 'file': '\v\.(exe|so|dll|log|class)$',
   \ }
 

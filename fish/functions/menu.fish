@@ -1,1 +1,1 @@
-/home/kevin/.config/fisherman/menu/menu.fish
+/Users/kevin/.config/fisherman/menu/menu.fish
