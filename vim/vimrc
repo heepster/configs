@@ -63,6 +63,9 @@ Plugin 'airblade/vim-gitgutter'
 call vundle#end()
 filetype plugin indent on  
 
+""" YOUCOMPLETEME
+let g:EclimCompletionMethod = 'omnifunc'
+
 """ SUPERTAB
 let g:SuperTabDefaultCompletionType = 'context'
 
@@ -159,3 +162,4 @@ au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead Gemfile set filetype=ruby
 au! BufRead,BufNewFile *.json set filetype=json
 au! FileType c,cpp,java,php call CSyntaxAfter()
+
