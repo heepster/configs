@@ -1,4 +1,4 @@
-set shell=/bin/sh
+set shell=/bin/bash
 set so=7
 set ai
 set expandtab
@@ -21,6 +21,7 @@ set number
 set lazyredraw
 set ttyfast
 set directory=/var/tmp
+set backspace=indent,eol,start
 hi LineNr ctermfg=grey guifg=Black
 hi SignColumn ctermbg=232
 syntax on
@@ -45,6 +46,8 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'dag/vim-fish'
@@ -57,9 +60,13 @@ Plugin 'vim-scripts/cSyntaxAfter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
-"Plugin 'scrooloose/syntastic'
+Plugin 'guns/vim-clojure-static'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'ternjs/tern_for_vim'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'ekalinin/Dockerfile.vim'
 call vundle#end()
 filetype plugin indent on  
 
@@ -143,10 +150,15 @@ let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_enable_signs = 0
+let g:syntastic_enable_signs = 1
 
 """ VIM GUTTER
 let g:gitgutter_sign_column_always = 1
+
+""" YOUCOMPLETEME
+let g:ycm_add_preview_to_completeopt=0
+let g:ycm_confirm_extra_conf=0
+set completeopt-=preview
 
 """ FILE SPECIFIC
 au FileType fish compiler fish

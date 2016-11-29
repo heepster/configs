@@ -1,6 +1,5 @@
 ### ENVIRONMENT VARIABLES
 
-set -U OSTACK_IP     "10.20.10.121"
 set -U PROJECTS_DIR  "$HOME/code/projects"
 set -U WORKSPACE_DIR "$HOME/code/workspace"
 set -U CONFIGS_DIR   "$PROJECTS_DIR/configs"
@@ -14,13 +13,19 @@ abbr -a s "source ~/.config/fish/config.fish"
 abbr -a f "cd $PROJECTS_DIR"
 abbr -a w "cd $WORKSPACE_DIR"
 abbr -a b "cd $BIN_DIR"
-abbr -a r "echo 'SSHing to openstack machine'; and ssh kevin@$OSTACK_IP"
 abbr -a sc 'echo "Saving configuration files"; and cd $CONFIGS_DIR; and git add .; and git commit -m "Latest updates"; and git push'
 
 ## MAVEN
 
 abbr -a mcc 'mvn clean compile'
 abbr -a mej 'mvn exec:java'
+
+## Java
+set -g -x JAVA_8_HOME (/usr/libexec/java_home -v1.8)
+set -g -x JAVA_7_HOME (/usr/libexec/java_home -v1.7)
+abbr -a java7 'set -g -x JAVA_HOME $JAVA_7_HOME'
+abbr -a java8 'set -g -x JAVA_HOME $JAVA_8_HOME'
+set -g -x JAVA_HOME $JAVA_8_HOME
 
 ## TMUX
 
@@ -36,9 +41,12 @@ abbr -a gs "git status"
 abbr -a gr "git reset HEAD "
 
 ## NVM
-abbr -a bsn "bass source ~/.nvm/nvm.sh --no-use ';'"
-abbr -a nvm "bass source ~/.nvm/nvm.sh --no-use ';' nvm"
-abbr -a npm "bass source ~/.nvm/nvm.sh --no-use ';' npm"
+set -l BASS_PREFIX "bass source ~/.nvm/nvm.sh --no-use ';'"
+set -l NVM_CMD "$BASS_PREFIX nvm"
+set -l NPM_CMD "$BASS_PREFIX npm"
+abbr -a bsn $BASS_PREFIX
+abbr -a nvm $NVM_CMD
+abbr -a npm $NPM_CMD
 
 ## DOCKER
 
@@ -48,3 +56,11 @@ abbr -a de "set ID (docker ps | grep -v CONTAINER | awk '{print \$1}' | head -n 
 # Kill most recent docker container
 abbr -a dk "set ID (docker ps | grep -v CONTAINER | awk '{print \$1}' | head -n 1); docker kill \$ID"
 rvm default
+
+### ENVIRONMENT SETUP 
+
+## NVM
+eval $NVM_CMD use 4.4.5
+
+## PATH
+set -gx PATH /usr/local/Cellar/vim/7.4.2334/bin/ (eval $NPM_CMD bin -g) $PATH
