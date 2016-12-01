@@ -16,11 +16,16 @@ abbr -a sc 'echo "Saving configuration files"; and cd $CONFIGS_DIR; and git add 
 abbr -a wd "ssh kevin@$WORK_DESKTOP_IP"
 
 ## Java
-set -g -x JAVA_8_HOME (/usr/libexec/java_home -v1.8)
-set -g -x JAVA_7_HOME (/usr/libexec/java_home -v1.7)
-abbr -a java7 'set -g -x JAVA_HOME $JAVA_7_HOME'
-abbr -a java8 'set -g -x JAVA_HOME $JAVA_8_HOME'
-set -g -x JAVA_HOME $JAVA_8_HOME
+switch (uname)
+case Darwin
+  set -g -x JAVA_8_HOME (/usr/libexec/java_home -v1.8)
+  set -g -x JAVA_7_HOME (/usr/libexec/java_home -v1.7)
+  abbr -a java7 'set -g -x JAVA_HOME $JAVA_7_HOME'
+  abbr -a java8 'set -g -x JAVA_HOME $JAVA_8_HOME'
+  set -g -x JAVA_HOME $JAVA_8_HOME
+case Linux 
+  # Linux has good support for Java version switching already
+end
 
 ## TMUX
 abbr -a tl 'tmux list-sessions'
