@@ -4,7 +4,6 @@ set -U WORKSPACE_DIR "$HOME/code/workspace"
 set -U CONFIGS_DIR   "$PROJECTS_DIR/configs"
 set -U BIN_DIR       "$HOME/code/bin"
 set -U WORK_DESKTOP_IP "10.0.201.41"
-set -U VIM_VERSION "8.0.0118"
 
 ### ABBREVIATIONS
 
@@ -58,6 +57,5 @@ abbr -a dk "set ID (docker ps | grep -v CONTAINER | awk '{print \$1}' | head -n 
 ## PATH
 switch (uname)
 case Darwin
-  # Prefer Homebrew's vim instead of built-in vim
-  set -gx PATH /usr/local/Cellar/vim/$VIM_VERSION/bin $PATH
+  set -gx PATH /usr/local/bin $PATH
 end
