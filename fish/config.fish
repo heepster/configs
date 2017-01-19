@@ -57,5 +57,6 @@ abbr -a dk "set ID (docker ps | grep -v CONTAINER | awk '{print \$1}' | head -n 
 ## PATH
 switch (uname)
 case Darwin
-  set -gx PATH /usr/local/bin $PATH
+  set -gx PATH /usr/local/opt/gnu-tar/libexec/gnubin /usr/local/bin $PATH
+  set -gx MANPATH /usr/local/opt/gnu-tar/libexec/gnuman $MANPATH
 end

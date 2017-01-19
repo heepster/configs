@@ -27,7 +27,6 @@ hi SignColumn ctermbg=232
 syntax on
 syntax enable
 map <C-g> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
-map <C-s> :execute "so $MYVIMRC"<CR>
 map <C-l> :execute "lopen"<CR>
 imap <C-c> console.log();<Esc>hi
 imap <C-s> System.out.println();<Esc>hi
@@ -51,7 +50,6 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'dag/vim-fish'
-Plugin 'ervandew/supertab'
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdTree'
 Plugin 'jistr/vim-nerdtree-tabs'
@@ -72,9 +70,8 @@ filetype plugin indent on
 
 """ YOUCOMPLETEME
 let g:EclimCompletionMethod = 'omnifunc'
-
-""" SUPERTAB
-let g:SuperTabDefaultCompletionType = 'context'
+map <C-i> :execute "JavaImport"<CR>
+map <C-s> :execute "JavaSearchContext"<CR>
 
 """ RAINBOW PARENTHESES
 let g:rbpt_colorpairs = [
