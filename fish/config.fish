@@ -33,7 +33,7 @@ abbr -a ta 'tmux attach -t '
 
 ## GIT
 abbr -a ga "git add ."
-abbr -a gd "git diff HEAD *"
+abbr -a gd "git diff --cached"
 abbr -a gc "git commit -m"
 abbr -a gs "git status"
 

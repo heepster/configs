@@ -28,6 +28,7 @@ syntax on
 syntax enable
 map <C-g> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 map <C-l> :execute "lopen"<CR>
+nmap <C-n> :set invnumber<CR>
 imap <C-c> console.log();<Esc>hi
 imap <C-s> System.out.println();<Esc>hi
 silent !stty -ixon > /dev/null 2>/dev/null
@@ -70,6 +71,9 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'ekalinin/Dockerfile.vim'
 call vundle#end()
 filetype plugin indent on  
+
+""" ACK VIM
+map <C-a> :execute "Ack! <cword> ."<CR>
 
 """ YOUCOMPLETEME
 let g:EclimCompletionMethod = 'omnifunc'
