@@ -32,7 +32,7 @@ values."
    dotspacemacs-configuration-layers
    '(
      shell-scripts
-     shell-scriptsswift
+     swift
      react
      markdown
      yaml
@@ -40,6 +40,7 @@ values."
      ruby-on-rails
      html
      ;javascript
+     typescript
      java
      syntax-checking
      themes-megapack
@@ -327,6 +328,8 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
+  (setq shell-file-name "/bin/sh")
+
   (setq eclim-eclipse-dirs '("/Applications/Eclipse.app/Contents/Eclipse")
         eclim-executable "/Applications/Eclipse.app/Contents/Eclipse/eclim"
         eclimd-executable "/Applications/Eclipse.app/Contents/Eclipse/eclimd")
@@ -345,7 +348,6 @@ you should place your code here."
     ))
 
   (setq-default
-
    js-indent-level 2
    ;; js2-mode
    js2-basic-offset 2
