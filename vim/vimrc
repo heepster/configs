@@ -69,6 +69,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'keith/swift.vim'
+Plugin 'leafgarland/typescript-vim'
 call vundle#end()
 filetype plugin indent on  
 
@@ -79,6 +80,7 @@ map <C-a> :execute "Ack! <cword> ."<CR>
 let g:EclimCompletionMethod = 'omnifunc'
 map <C-i> :execute "JavaImport"<CR>
 map <C-s> :execute "JavaSearchContext"<CR>
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
 """ RAINBOW PARENTHESES
 let g:rbpt_colorpairs = [
@@ -161,6 +163,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_enable_signs = 1
+let g:syntastic_java_checkers = [] "disable for java
+let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [],'passive_filetypes': ['.java'] } 
+nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 
 """ VIM GUTTER
 let g:gitgutter_sign_column_always = 1
