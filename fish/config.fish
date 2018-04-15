@@ -37,26 +37,6 @@ abbr -a gd "git diff --cached"
 abbr -a gc "git commit -m"
 abbr -a gs "git status"
 
-## NVM
-#eval $NVM_CMD use 4.4.5
-set -l BASS_PREFIX "bass source ~/.nvm/nvm.sh --no-use ';'"
-set -l NVM_CMD "$BASS_PREFIX nvm"
-set -l NPM_CMD "$BASS_PREFIX npm"
-abbr -a bsn $BASS_PREFIX
-abbr -a nvm $NVM_CMD
-abbr -a npm $NPM_CMD
+rvm default
 
-## DOCKER
-
-# Exec into most recent docker container
-abbr -a de "set ID (docker ps | grep -v CONTAINER | awk '{print \$1}' | head -n 1); docker exec -it \$ID /bin/bash"
-
-# Kill most recent docker container
-abbr -a dk "set ID (docker ps | grep -v CONTAINER | awk '{print \$1}' | head -n 1); docker kill \$ID"
-
-## PATH
-switch (uname)
-case Darwin
-  set -gx PATH /usr/local/opt/gnu-tar/libexec/gnubin /usr/local/bin $PATH
-  set -gx MANPATH /usr/local/opt/gnu-tar/libexec/gnuman $MANPATH
-end
+set -gx PATH /usr/local/bin $PATH

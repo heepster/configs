@@ -41,6 +41,7 @@ values."
      ruby-on-rails
      html
      ;javascript
+     typescript
      java
      syntax-checking
      themes-megapack
@@ -362,7 +363,6 @@ you should place your code here."
               ;(define-key global-map (kbd "l") #'evil-window-right)
               (define-key neotree-mode-map (kbd "C-w l") 'evil-window-right)
               )))
-
   ;; Caching files results in strange behavior
   ;; If you delete a file, the cache doesn't pick up on this
   (setq projectile-enable-caching t)
@@ -384,6 +384,20 @@ you should place your code here."
                      auto-completion-complete-with-key-sequence-delay 0.1
                      auto-completion-private-snippets-directory nil)
     ))
+
+  (setq-default
+   js-indent-level 2
+   ;; js2-mode
+   js2-basic-offset 2
+   ;; web-mode
+   css-indent-offset 2
+   web-mode-markup-indent-offset 2
+   web-mode-css-indent-offset 2
+   web-mode-code-indent-offset 2
+   web-mode-attr-indent-offset 2)
+
+  ;; Java/c/c++
+  (setq c-basic-offset 2)
 
   (with-eval-after-load 'web-mode
     (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
