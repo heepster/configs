@@ -1,0 +1,176 @@
+set shell=/bin/bash
+set so=7
+set ai
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set background=dark
+set autoindent
+set smartindent
+set title
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+set wildmode=longest,list,full
+set wildmenu
+set showcmd
+set report=0
+set number
+set lazyredraw
+set ttyfast
+set directory=/var/tmp
+set backspace=indent,eol,start
+hi LineNr ctermfg=grey guifg=Black
+hi SignColumn ctermbg=232
+syntax on
+syntax enable
+map <C-g> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+map <C-l> :execute "lopen"<CR>
+nmap <C-n> :set invnumber<CR>
+imap <C-c> console.log();<Esc>hi
+imap <C-s> System.out.println();<Esc>hi
+silent !stty -ixon > /dev/null 2>/dev/null
+hi Search cterm=NONE ctermfg=DarkRed ctermbg=DarkBlue
+highlight Pmenu ctermbg=DarkGrey ctermfg=White
+highlight PmenuSel ctermbg=DarkGreen ctermfg=Black
+nnoremap <CR> :nohlsearch<CR>
+let mapleader = ","
+
+" Auto remove trailing whitespaces
+autocmd FileType c,cpp,java,php autocmd BufWritePre <buffer> %s/\s\+$//e 
+
+call plug#begin('~/.local/share/nvim/plugged')
+  Plug 'vim-syntastic/syntastic'
+  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'scrooloose/nerdTree'
+  Plug 'itchyny/lightline.vim'
+
+  " Themes
+  Plug 'arcticicestudio/nord-vim'
+
+  " Languages
+  Plug 'rust-lang/rust.vim'
+call plug#end()
+
+colorscheme nord
+
+""" ACK VIM
+map <C-a> :execute "Ack! <cword> ."<CR>
+
+""" YOUCOMPLETEME
+let g:EclimCompletionMethod = 'omnifunc'
+map <C-i> :execute "JavaImport"<CR>
+map <C-s> :execute "JavaSearchContext"<CR>
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+
+""" RAINBOW PARENTHESES
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ]
+
+" au VimEnter * RainbowParenthesesToggle
+" au Syntax * RainbowParenthesesLoadRound
+" au Syntax * RainbowParenthesesLoadSquare
+" au Syntax * RainbowParenthesesLoadBraces
+
+""" CTRL-P
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_prompt_mappings = {
+    \ 'PrtSelectMove("j")':   ['<c-j>', '<c-n>'],
+    \ 'PrtSelectMove("k")':   ['<c-k>', '<c-p>'],
+    \ 'PrtHistory(-1)':       ['<down>'],
+    \ 'PrtHistory(1)':        ['<up>'],
+    \ }"
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn|target)$|node_modules|target|dist|deps|build|iOS\/frameworks',
+  \ 'file': '\v\.(exe|so|dll|log|class)$',
+  \ }
+
+""" NERDTREE
+map <C-e> :NERDTreeTabsToggle<CR>
+let NERDTreeMapOpenVSplit = '<C-v>'
+let NERDTreeMapOpenInTab = '<C-t>'
+let NERDTreeMapOpenSplit = '<C-s>'
+
+""" JSON-VIM
+let g:vim_json_syntax_conceal = 0
+
+""" EASY MOTION
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Jump to anywhere you want with minimal keystrokes, with just one key
+" binding.
+" `s{char}{label}`
+nmap s <Plug>(easymotion-overwin-f)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+"nmap s <Plug>(easymotion-overwin-f2)
+
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+""" SYNTASTIC
+" set statusline=%f
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+let g:lightline = {
+      \ 'colorscheme': 'nord',
+      \ }
+let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
+let g:syntastic_rust_checkers = ['rustc']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_enable_signs = 1
+let g:syntastic_java_checkers = [] "disable for java
+let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [],'passive_filetypes': ['.java'] } 
+nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+
+""" VIM GUTTER
+let g:gitgutter_sign_column_always = 1
+
+""" YOUCOMPLETEME
+let g:ycm_add_preview_to_completeopt=0
+let g:ycm_confirm_extra_conf=0
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+set completeopt-=preview
+
+""" FILE SPECIFIC
+au FileType fish compiler fish
+au BufNewFile,BufRead *.ms set filetype=javascript
+au BufNewFile,BufRead *.pegjs set filetype=javascript
+au BufNewFile,BufRead *.jsx set filetype=javascript
+au BufNewFile,BufRead *.cjsx set filetype=javascript
+au BufNewFile,BufRead *.cap set filetype=ruby
+au BufNewFile,BufRead *.ejs set filetype=html
+au BufNewFile,BufRead Gemfile set filetype=ruby
+au! BufRead,BufNewFile *.json set filetype=json
+au! FileType c,cpp,java,php call CSyntaxAfter()
+
