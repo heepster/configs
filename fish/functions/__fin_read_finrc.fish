@@ -1,1 +1,0 @@
-/home/kevin/.config/fisherman/fin/functions/__fin_read_finrc.fish

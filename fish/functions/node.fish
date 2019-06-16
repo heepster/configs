@@ -1,1 +1,0 @@
-/home/kevin/.config/fisherman/fin/functions/node.fish
