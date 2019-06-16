@@ -1,5 +1,6 @@
 ### ENVIRONMENT VARIABLES
 set -U PROJECTS_DIR  "$HOME/workspace/code"
+set -U CONFIGS_DIR = "$HOME/workspace/code/configs"
 
 ### ABBREVIATIONS
 
