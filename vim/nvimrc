@@ -49,6 +49,8 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Languages
   Plug 'rust-lang/rust.vim'
   Plug 'derekwyatt/vim-scala'
+  Plug 'chrisbra/csv.vim'
+
 call plug#end()
 
 " Dark Rustic Themes
@@ -62,7 +64,7 @@ let g:challenger_deep_termcolors = 16
 colorscheme challenger_deep
 
 """ FZF
-map <C-p> :execute "GFiles"<CR>
+map <C-p> :execute "Files"<CR>
 map <C-l> :execute "Lines"<CR>
 map <C-m> :execute "Marks"<CR>
 
