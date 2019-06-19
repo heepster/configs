@@ -25,10 +25,13 @@ set cmdheight=1
 set nowrap
 syntax on
 syntax enable
-map <C-s> :execute "so %"<CR>
 silent !stty -ixon > /dev/null 2>/dev/null
 nnoremap <CR> :nohlsearch<CR>
 let mapleader = ","
+
+""" Key mappings
+" Reload vimrc
+map <C-s> :execute "so ~/.config/nvim/init.vim"<CR>
 
 " Auto remove trailing whitespaces
 autocmd FileType c,cpp,java,php,scala,python,ruby autocmd BufWritePre <buffer> %s/\s\+$//e 
@@ -36,10 +39,15 @@ autocmd FileType c,cpp,java,php,scala,python,ruby autocmd BufWritePre <buffer> %
 call plug#begin('~/.local/share/nvim/plugged')
   Plug 'scrooloose/nerdTree'
   Plug 'itchyny/lightline.vim'
+  Plug 'tpope/vim-fugitive'
+       " Plugins for Vim Fugitive GBrowse
+       Plug 'tommcdo/vim-fubitive' " Bitbucket
+       Plug 'tpope/vim-rhubarb' " Github
   Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+       ":CocInstall coc-python
 
   " Tools
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
   Plug 'junegunn/fzf.vim'
   Plug 'terryma/vim-multiple-cursors'
 
@@ -64,7 +72,8 @@ let g:challenger_deep_termcolors = 16
 colorscheme challenger_deep
 
 """ FZF
-map <C-p> :execute "Files"<CR>
+map <C-p> :execute "GFiles"<CR>
+map <C-f> :execute "Files"<CR>
 map <C-l> :execute "Lines"<CR>
 map <C-m> :execute "Marks"<CR>
 
@@ -76,7 +85,6 @@ let NERDTreeMapOpenSplit = '<C-s>'
 
 """ FILE SPECIFIC
 au FileType fish compiler fish
-au BufNewFile,BufRead *.ms set filetype=javascript
 au BufNewFile,BufRead *.pegjs set filetype=javascript
 au BufNewFile,BufRead *.jsx set filetype=javascript
 au BufNewFile,BufRead *.cjsx set filetype=javascript
@@ -87,6 +95,14 @@ au! BufRead,BufNewFile *.json set filetype=json
 au! FileType c,cpp,java,php call CSyntaxAfter()
 au BufRead,BufNewFile *.sbt set filetype=scala
 autocmd FileType json syntax match Comment +\/\/.\+$+
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
 
 """ COC Plugin
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
@@ -104,10 +120,16 @@ let g:lightline = {
       \ 'colorscheme': 'challenger_deep',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+      \             [ 'readonly', 'gitbranch', 'filename', 'modified' ] ],
+      \   'right': [['lineinfo'], ['percent'], ['fileencoding', 'filetype'], ['cocstatus']]
+      \ },
+      \ 'inactive': {
+      \   'left': [['filename']],
+      \   'right': [['lineinfo'], ['percent']]
       \ },
       \ 'component_function': {
-      \   'cocstatus': 'coc#status'
+      \   'cocstatus': 'coc#status',
+      \   'gitbranch': 'fugitive#head'
       \ },
       \ }
 
