@@ -29,10 +29,6 @@ silent !stty -ixon > /dev/null 2>/dev/null
 nnoremap <CR> :nohlsearch<CR>
 let mapleader = ","
 
-""" Key mappings
-" Reload vimrc
-map <C-s> :execute "so ~/.config/nvim/init.vim"<CR>
-
 " Auto remove trailing whitespaces
 autocmd FileType c,cpp,java,php,scala,python,ruby autocmd BufWritePre <buffer> %s/\s\+$//e 
 
@@ -71,7 +67,14 @@ call plug#end()
 let g:challenger_deep_termcolors = 16
 colorscheme challenger_deep
 
+""" Key mappings
+nnoremap <Leader>ve :vsplit $MYVIMRC<CR>
+nnoremap <Leader>vs :so $MYVIMRC<CR>
+map } :execute "cnext"<CR>
+map { :execute "cprev"<CR>
+
 """ FZF
+map <C-s> :execute "Ag"<CR>
 map <C-p> :execute "GFiles"<CR>
 map <C-f> :execute "Files"<CR>
 map <C-l> :execute "Lines"<CR>
@@ -120,7 +123,7 @@ let g:lightline = {
       \ 'colorscheme': 'challenger_deep',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'readonly', 'gitbranch', 'filename', 'modified' ] ],
+      \             [ 'readonly', 'fugitive', 'filename', 'modified' ] ],
       \   'right': [['lineinfo'], ['percent'], ['fileencoding', 'filetype'], ['cocstatus']]
       \ },
       \ 'inactive': {
@@ -129,7 +132,6 @@ let g:lightline = {
       \ },
       \ 'component_function': {
       \   'cocstatus': 'coc#status',
-      \   'gitbranch': 'fugitive#head'
-      \ },
+      \   'fugitive': 'FugitiveStatusline'
       \ }
-
+      \ }
