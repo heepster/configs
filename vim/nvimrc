@@ -46,6 +46,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
   Plug 'junegunn/fzf.vim'
   Plug 'terryma/vim-multiple-cursors'
+  Plug 'airblade/vim-gitgutter'
 
   " Themes
   Plug 'rafi/awesome-vim-colorschemes'
@@ -54,6 +55,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'rust-lang/rust.vim'
   Plug 'derekwyatt/vim-scala'
   Plug 'chrisbra/csv.vim'
+  Plug 'GEverding/vim-hocon'
 
 call plug#end()
 
