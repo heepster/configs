@@ -16,6 +16,7 @@ set wildmenu
 set showcmd
 set report=0
 set number
+set numberwidth=1
 set lazyredraw
 set ttyfast
 set directory=/var/tmp
@@ -80,7 +81,7 @@ map <C-s> :execute "Ag"<CR>
 map <C-p> :execute "GFiles"<CR>
 map <C-f> :execute "Files"<CR>
 map <C-l> :execute "Lines"<CR>
-map <C-m> :execute "Marks"<CR>
+"map <C-m> :execute "Marks"<CR>
 
 """ NERDTREE
 map <C-e> :NERDTreeToggle<CR>
