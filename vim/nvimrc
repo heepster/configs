@@ -40,15 +40,10 @@ call plug#begin('~/.local/share/nvim/plugged')
        " Plugins for Vim Fugitive GBrowse
        Plug 'tommcdo/vim-fubitive' " Bitbucket
        Plug 'tpope/vim-rhubarb' " Github
-  Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-       ":CocInstall coc-python
-
   " Tools
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
-  Plug 'junegunn/fzf.vim'
   Plug 'airblade/vim-gitgutter'
 
-  " Themes
+  "Themes
   Plug 'rafi/awesome-vim-colorschemes'
 
   " Languages
@@ -59,27 +54,11 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 call plug#end()
 
-" Themes
-" colorscheme deus
-" colorscheme happy_hacking
-" colorscheme seoul256
-" colorscheme nord
-" colorscheme lucius
-"let g:challenger_deep_termcolors = 16
-"colorscheme challenger_deep
-
 """ Key mappings
 nnoremap <Leader>ve :vsplit $MYVIMRC<CR>
 nnoremap <Leader>vs :so $MYVIMRC<CR>
 map } :execute "cnext"<CR>
 map { :execute "cprev"<CR>
-
-""" FZF
-map <C-s> :execute "Ag"<CR>
-map <C-p> :execute "GFiles"<CR>
-map <C-f> :execute "Files"<CR>
-map <C-l> :execute "Lines"<CR>
-"map <C-m> :execute "Marks"<CR>
 
 """ NERDTREE
 map <C-e> :NERDTreeToggle<CR>
@@ -108,31 +87,18 @@ au BufNewFile,BufRead *.py
     \ set autoindent |
     \ set fileformat=unix
 
-""" COC Plugin
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
 let g:lightline = {
       \ 'colorscheme': 'challenger_deep',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'readonly', 'fugitive', 'filename', 'modified' ] ],
-      \   'right': [['lineinfo'], ['percent'], ['fileencoding', 'filetype'], ['cocstatus']]
+      \   'right': [['lineinfo'], ['percent'], ['fileencoding', 'filetype']]
       \ },
       \ 'inactive': {
       \   'left': [['filename']],
       \   'right': [['lineinfo'], ['percent']]
       \ },
       \ 'component_function': {
-      \   'cocstatus': 'coc#status',
       \   'fugitive': 'FugitiveStatusline'
       \ }
       \ }
