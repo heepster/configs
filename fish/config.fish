@@ -1,14 +1,11 @@
 ### ENVIRONMENT VARIABLES
 set -U PROJECTS_DIR "$HOME/workspace/code"
 set -U CONFIGS_DIR "$PROJECTS_DIR/configs"
-set -U ATOM_MISC_DIR "$PROJECTS_DIR/misc/atom"
-set -U ATOM_MISC_BIN "$ATOM_MISC_DIR/bin"
 
 ### ABBREVIATIONS
 
 ## General
 abbr -a p "cd $PROJECTS_DIR"
-abbr -a a "cd $ATOM_MISC_DIR"
 abbr -a c "cd $CONFIGS_DIR"
 abbr -a sc 'echo "Saving configuration files"; and cd $CONFIGS_DIR; and git add .; and git commit -m "Latest updates"; and git push'
 abbr -a s "source ~/.config/fish/config.fish"
@@ -41,4 +38,8 @@ abbr -a fc "nvim ~/.config/fish/config.fish"
 
 abbr -a node "nvm; and node"
 
-set -gx PATH $ATOM_MISC_BIN ~/Library/Python/3.7/bin /usr/local/opt/python/libexec/bin /usr/local/bin ~/.cargo/bin $PATH
+switch (uname)
+case Darwin
+  set -gx PATH ~/Library/Python/3.7/bin /usr/local/opt/python/libexec/bin /usr/local/bin ~/.cargo/bin $PATH
+case Linux
+end
