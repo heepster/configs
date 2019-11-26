@@ -9,7 +9,7 @@ module.exports = {
     updateChannel: 'stable',
 
     // default font size in pixels for all tabs
-    fontSize: 13,
+    fontSize: 12,
 
     // font family with optional fallbacks
     fontFamily: 'Monaco, Roboto Mono, Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
@@ -165,8 +165,9 @@ module.exports = {
   localPlugins: [],
 
   keymaps: {
-    // Example
-    // 'window:devtools': 'cmd+alt+o',
+    //"editor:break": "ctrl+C",
+    //"editor:copy": "ctrl+c",
+    "editor:paste": "ctrl+v"
   },
 
   modifierKeys: { altIsMeta: true },
