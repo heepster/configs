@@ -46,7 +46,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Tools
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
   Plug 'junegunn/fzf.vim'
-  Plug 'terryma/vim-multiple-cursors'
   Plug 'airblade/vim-gitgutter'
 
   " Themes
@@ -60,15 +59,14 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 call plug#end()
 
-" Dark Rustic Themes
-"colorscheme deus
-"colorscheme happy_hacking
-
-" Medium Pristine Themes
-"colorscheme seoul256
-"colorscheme nord
-let g:challenger_deep_termcolors = 16
-colorscheme challenger_deep
+" Themes
+" colorscheme deus
+" colorscheme happy_hacking
+" colorscheme seoul256
+" colorscheme nord
+" colorscheme lucius
+"let g:challenger_deep_termcolors = 16
+"colorscheme challenger_deep
 
 """ Key mappings
 nnoremap <Leader>ve :vsplit $MYVIMRC<CR>

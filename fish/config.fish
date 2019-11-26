@@ -39,5 +39,6 @@ abbr -a vim "nvim"
 abbr -a vc "nvim ~/.config/nvim/init.vim"
 abbr -a fc "nvim ~/.config/fish/config.fish"
 
-rvm default
+abbr -a node "nvm; and node"
+
 set -gx PATH $ATOM_MISC_BIN ~/Library/Python/3.7/bin /usr/local/opt/python/libexec/bin /usr/local/bin ~/.cargo/bin $PATH
