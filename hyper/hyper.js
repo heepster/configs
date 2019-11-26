@@ -152,10 +152,11 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     //"hyper-pokemon", 
-    "hyper-oceans16", 
+    //"hyper-oceans16", 
     //"hyper-aurora", 
     //"hyper-chesterish", 
-    //"hyper-subliminal-theme"
+    //"hyper-subliminal-theme",
+    "hyper-electron-highlighter"
   ],
 
   // in development, you can create a directory under
