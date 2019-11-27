@@ -1,0 +1,85 @@
+// Place your key bindings in this file to overwrite the defaults
+[ 
+  // Find files, like Vim's CTRL+P
+  {
+    "key": "ctrl+p",
+    "command": "workbench.action.quickOpen",
+    "when": "!inQuickOpen"
+  },
+
+  // Show all commands
+  {
+    "key": "shift+ctrl+p",
+    "command": "workbench.action.showCommands"
+  },
+
+  // Close quick open
+  {
+    "key": "ctrl+[",
+    "command": "workbench.action.closeQuickOpen",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+g",
+    "command": "workbench.action.closeQuickOpen",
+    "when": "inQuickOpen"
+  },
+
+  // Explorer toggling
+  {
+    "key": "ctrl+e",
+    "command": "workbench.view.explorer",
+    "when": "!explorerViewletVisible"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "explorerViewletVisible"
+  },
+
+  // When editor not in focus, ignore default for ctrl+w
+  // so that we can use Vim's ctrl+w to move to another window
+  { 
+    "key": "ctrl+w",
+    "command": "-workbench.action.switchWindow",
+  },
+  { "key": "ctrl+w",                
+    "command": "extension.vim_ctrl+w",
+    "when": "vim.active && vim.use<C-w> && !inDebugRepl" 
+  },
+
+  // Remove cmd+N key bindings
+  {
+    "key": "cmd+1",
+    "command": "-workbench.action.focusFirstEditorGroup"
+  },
+  {
+    "key": "cmd+3",
+    "command": "-workbench.action.focusThirdEditorGroup"
+  },
+  {
+    "key": "cmd+6",
+    "command": "-workbench.action.focusSixthEditorGroup"
+  },
+  {
+    "key": "cmd+7",
+    "command": "-workbench.action.focusSeventhEditorGroup"
+  },
+  {
+    "key": "cmd+2",
+    "command": "-workbench.action.focusSecondEditorGroup"
+  },
+  {
+    "key": "cmd+4",
+    "command": "-workbench.action.focusFourthEditorGroup"
+  },
+  {
+    "key": "cmd+5",
+    "command": "-workbench.action.focusFifthEditorGroup"
+  },
+  {
+    "key": "cmd+8",
+    "command": "-workbench.action.focusEighthEditorGroup"
+  },
+
+ ]
