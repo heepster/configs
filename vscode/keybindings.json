@@ -25,6 +25,19 @@
     "when": "inQuickOpen"
   },
 
+  // Quick Open select next / previous
+  { 
+    "key": "ctrl+p",
+    "command": "workbench.action.quickOpenSelectPrevious",
+    "when": "inQuickOpen"
+  },
+  { 
+    "key": "ctrl+n",
+    "command": "workbench.action.quickOpenSelectNext",
+    "when": "inQuickOpen"
+  },
+
+
   // Explorer toggling
   {
     "key": "ctrl+e",
