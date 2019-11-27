@@ -166,8 +166,8 @@ module.exports = {
 
   keymaps: {
     //"editor:break": "ctrl+C",
-    //"editor:copy": "ctrl+c",
-    "editor:paste": "ctrl+v"
+    //"editor:copy": "command+c",
+    //"editor:paste": "command+v"
   },
 
   modifierKeys: { altIsMeta: true },

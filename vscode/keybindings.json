@@ -48,6 +48,10 @@
     "when": "vim.active && vim.use<C-w> && !inDebugRepl" 
   },
 
+  //
+  // OSX Only
+  //
+
   // Remove cmd+N key bindings
   {
     "key": "cmd+1",
@@ -82,4 +86,38 @@
     "command": "-workbench.action.focusEighthEditorGroup"
   },
 
+  //
+  // End OSX Only
+  //
+
+
+
+  //
+  // Linux Only
+  //
+
+  {
+    "key": "ctrl+shift+w",
+    "command": "-workbench.action.closeWindow",
+    "when": "isLinux"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "-workbench.action.closeWindow",
+    "when": "isLinux && !editorIsOpen && !multipleEditorGroups"
+  },
+  {
+    "key": "ctrl+shift+w",
+    "command": "workbench.action.closeActiveEditor",
+    "when": "isLinux"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "-workbench.action.closeActiveEditor",
+    "when": "isLinux"
+  },
+
+  //
+  // End Linux Only
+  //
  ]
