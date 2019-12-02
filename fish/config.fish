@@ -1,6 +1,7 @@
 ### ENVIRONMENT VARIABLES
 set -U PROJECTS_DIR "$HOME/workspace/code"
 set -U CONFIGS_DIR "$PROJECTS_DIR/configs"
+set -gx EDITOR "nvim"
 
 ### ABBREVIATIONS
 
