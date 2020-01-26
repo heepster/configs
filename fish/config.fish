@@ -1,5 +1,5 @@
 ### ENVIRONMENT VARIABLES
-set -U PROJECTS_DIR "$HOME/workspace/code"
+set -U PROJECTS_DIR "$HOME/workspace/projects"
 set -U CONFIGS_DIR "$PROJECTS_DIR/configs"
 set -gx EDITOR "nvim"
 
@@ -12,14 +12,14 @@ abbr -a sc 'echo "Saving configuration files"; and cd $CONFIGS_DIR; and git add 
 abbr -a s "source ~/.config/fish/config.fish"
 
 ## Java
-switch (uname)
-case Darwin
-  set -g -x JAVA_8_HOME (/usr/libexec/java_home -v1.8)
-  abbr -a java8 'set -g -x JAVA_HOME $JAVA_8_HOME'
-  set -g -x JAVA_HOME $JAVA_8_HOME
-case Linux 
-  # Linux has good support for Java version switching already
-end
+#switch (uname)
+#case Darwin
+#  set -g -x JAVA_8_HOME (/usr/libexec/java_home -v1.8)
+#  abbr -a java8 'set -g -x JAVA_HOME $JAVA_8_HOME'
+#  set -g -x JAVA_HOME $JAVA_8_HOME
+#case Linux 
+#  # Linux has good support for Java version switching already
+#end
 
 ## TMUX
 abbr -a tl 'tmux list-sessions'
