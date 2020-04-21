@@ -21,8 +21,6 @@ abbr -a gd "git diff --cached"
 abbr -a gc "git commit -m"
 abbr -a gs "git status"
 
-abbr -a vim "nvim"
-
 # OPEN COMMON FILES
 abbr -a vc "nvim ~/.config/nvim/init.vim"
 abbr -a fc "nvim ~/.config/fish/config.fish"
