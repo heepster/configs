@@ -25,6 +25,7 @@ set updatetime=300
 set cmdheight=1
 set nowrap
 set cursorline
+set autoread
 
 " Cursorline
 hi CursorLine cterm=NONE ctermbg=509 ctermfg=495 guibg=grey guifg=white
@@ -50,10 +51,13 @@ silent !stty -ixon > /dev/null 2>/dev/null
 let mapleader = ","
 
 " Auto remove trailing whitespaces
-autocmd FileType c,cpp,java,php,scala,python,ruby autocmd BufWritePre <buffer> %s/\s\+$//e 
+autocmd FileType typescript,javascript,c,cpp,java,php,scala,python,ruby autocmd BufWritePre <buffer> %s/\s\+$//e 
 
 " Auto Resize windows
 autocmd VimResized * wincmd =
+
+" Trigger refresh file on (& if) disk change whenever cursor stops moving
+au CursorHold,CursorHoldI * checktime
 
 call plug#begin('~/.local/share/nvim/plugged')
   Plug 'scrooloose/nerdTree'
