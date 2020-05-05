@@ -98,9 +98,16 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# General
+alias s="source ~/.zshrc && echo 'zshrc reloaded!'"
+alias e="vim ~/.zshrc"
 
+# Tmux
 alias tl="tmux list-sessions"
 alias ta="tmux attach -t"
+
+# Git
 alias ga="git add ."
 alias gs="git status"
 alias gc="git commit -m"
+alias gd="git diff HEAD *"
