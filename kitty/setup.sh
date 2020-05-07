@@ -2,6 +2,8 @@
 
 OS_SPECIFIC_CONF="os-specific.conf"
 
+ln -sf $(pwd) ~/.config/kitty
+
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   echo "Setting up Kitty for Linux"
   ln -sf linux.conf $OS_SPECIFIC_CONF
